@@ -601,4 +601,260 @@ list2 = list1
   # list()可接受元组，字符串，其他序列类型，迭代器->列表
   ```
 
+#### 元素访问与计数：
+
+- 元组元素不可修改 -  immutable
+
+- 访问方法与列表相同，不过仍然返回元组对象。
+
+- 列表关于排序的方法list.sorted()是修改原列表对象，元组没有该方法，如果要对元组排序，只能使用内置函数sorted(tupleObj)，并生成新的列表对象。
+
+- `zip()`将多个列表对应位置元素组合为元组，并返回这个zip对象。
+
+  ```python
+  >>> a = (9,6,7,8)
+  >>> a[0]
+  9
+  >>> sorted(a)
+  [6, 7, 8, 9]
+  >>> b = [1,5,2,3]
+  >>> c = [233,2333]
+  >>> d = [555,666]
+  >>> e = zip(b,c,d)
+  >>> e
+  <zip object at 0x7fc3c2f0e1e0>
+  >>> list(e)
+  [(1, 233, 555), (5, 2333, 666)]
+  ```
+#### 生成器推导式创建元组：
+
+- 形式上与列表推导式类似，只是使用小括号。列表推导式生成列表，生成器推导式生成的不是列表也不是元组，而是一个生成器对象。
+
+- 可以通过生成器对象转化为列表或元组，也可使用生成器对象的`__next__()`方法进行遍历，或直接作为迭代器对象使用。不管以什么方式使用，元素访问(指针移动)结束后，如果需要重新访问其中元素则需重新创建该生成器对象。
+
+  ```python
+  >>> s = (x*2 for x in range(5))
+  >>> s
+  <generator object <genexpr> at 0x7fc3c37d9c50>
+  >>> tuple(s)
+  (0, 2, 4, 6, 8)
+  >>> list(s)
+  # 只能访问一次元素
+  []
+  >>> s = (x*2 for x in range(5))
+  >>> s.__next__()
+  0
+  >>> s.__next__()
+  2
+  >>> s.__next__()
+  4
+  ```
+#### 总结：
+
+- 元组核心特点：不可变序列
+- 元组访问和处理速度快于列表
+- 与整数和字符串一样，元组可作字典的键，列表不能作为字典的键使用。
+
+## 字典
+
+#### 基本概念：
+
+- 字典是“键值对”的无序可变序列，字典中每个元素都是一个“键值对”，包含：“键对象”和“值对象”。可以通过“键对象”实现快速获取，删除，更新对应的“值对象”。
+
+- 列表中通过下标数字找到对应对象。字典中通过“键对象”找到对应的“值对象”。“键”是任意的不可变数据，比如：整数，浮点数，字符串，元组，但是列表，字典，集合这些可变对象不可作为“键”。
+
+- “键”不可重复，“值”可以是任意数据，可重复。
+
+- 定义方式：`a = {'name':'rapt', 'age':18}`
+
+#### 字典的创建：
+
+- 可通过`{}` `dict()`创建字典对象
+
+  ```python
+  >>> a = dict(name = 'rapt', age = 18)
+  >>> a
+  {'name': 'rapt', 'age': 18}
+  >>> b = dict([('name','rapt'), ('age',18)])
+  >>> b
+  {'name': 'rapt', 'age': 18}
+  # 创建空字典  c = {}    d = dict()
+  ```
   
+- `zip()`创建字典对象
+
+  ```python
+  >>> k = ['name', 'age', 'job']
+  >>> v = ['rapt', '18', 'student']
+  >>> d = dict(zip(k,v))
+  >>> d
+  {'name': 'rapt', 'age': '18', 'job': 'student'}
+  ```
+  
+- 通过fromkeys创建值为空的字典
+
+  ```python
+  >>> a = dict.fromkeys(['name', 'age', 'job'])
+  >>> a
+  {'name': None, 'age': None, 'job': None}
+  ```
+
+#### 字典元素的访问：
+
+- 通过[键]获得“值”
+
+  ```python
+  >>> a = {'name':'rapt','age':18,'job':'student'}
+  >>> a['name']
+  'rapt'
+  >>> a['age']
+  18
+  ```
+  
+- 通过`get()`方法获得“值”，若指定键不存在则返回None，也可设定指定键不存在时默认返回的对象。
+
+  ```python
+  >>> a = {'name':'rapt', 'age':18, 'job':'student'}
+  >>> a.get('name')
+  'rapt'
+  >>> print(a.get('sex'))
+  None
+  >>> a.get('sex','Not Exist')
+  'Not Exist'
+  # 列出所有键值对
+  >>> a.items()
+  dict_items([('name', 'rapt'), ('age', 18), ('job', 'student')])
+  # 列出所有键
+  >>> a.keys()
+  dict_keys(['name', 'age', 'job'])
+  # 列出所有值
+  >>> a.values()
+  dict_values(['rapt', 18, 'student'])
+  # 键值对个数
+  >>> len(a)
+  3
+  # 检测key是否在字典中
+  >>> "name" in a
+  True
+  ```
+#### 字典元素添加，修改，删除：
+
+- 给字典新增“键值对”，若“键”已存在，则覆盖旧的键值对;如果“键”不存在，则新增“键值对”。
+
+```python
+>>> a = {'name':'rapt','age':18,'job':'student'}
+>>> a['address']='HITwh'
+>>> a['age']=19
+>>> a
+{'name': 'rapt', 'age': 19, 'job': 'student', 'address': 'HITwh'}
+```
+- 使用`update()`将新字典中所有键值对全部添加到旧字典对象上，若key有重复，则直接覆盖。
+
+  ```python
+  >>> b = {"name":'raptazure',"sex":"male"}
+  >>> a.update(b)
+  >>> a
+  {'name': 'raptazure', 'age': 19, 'job': 'student', 'address': 'HITwh', 'sex': 'male'}
+  ```
+  
+- 字典中元素的删除，可以使用`del()`方法，或者`clear()`删除所有键值对，`pop()`删除指定键值对，并返回对应的“值对象”
+  
+  ```python
+    >>> a ={"name":'rapt',"age":18,'job':'student'}
+    >>> del(a['job'])
+    >>> a
+    {'name': 'rapt', 'age': 18}
+    >>> b = a.pop('age')
+    >>> b
+    18
+    >>> a
+    {'name': 'rapt'}
+   >>> a.clear()
+  >>> a
+  {} 
+  ```
+  
+- `popitem()`随机删除和返回该键值对，字典是“无序可变序列”，因此没有第一个元素和最后一个元素的概念。popitem弹出随机的项，因为字典中并没有有关顺序的概念。若想一个接一个地移除并处理项，这个方法很有效（不用首先获取键的列表）。
+
+  ```python
+  >>> a  = {"name":'rapt','age':18,'job':'student'}
+  >>> a.popitem()
+  ('job', 'student')
+  >>> a
+  {'name': 'rapt', 'age': 18}
+  >>> a.popitem()
+  ('age', 18)
+  >>> a
+  {'name': 'rapt'}
+  ```
+
+#### 序列解包：
+- 序列解包可用于元组，列表，字典，方便对多个变量赋值。
+
+  ```python
+  >>> x,y,z = (20,30,233)
+  >>> x
+  20
+  >>> y
+  30
+  >>> z
+  233
+  >>> (a,b,c) = (9,8,23)
+  >>> a
+  9
+  >>> [a,b,c] = [23,233,2333]
+  >>> a
+  23
+  >>> b
+  233
+  ```
+  
+- 序列解包用于字典时，默认对key进行操作，如果需对键值对进行操作，则需使用`items()`；如果需要对值进行操作，则需用`values()`
+
+  ```python
+  >>> s = {"name":'rapt','age':18,'job':'student'}
+  >>> a,b,c = s
+  >>> a
+  'name'
+  >>> b
+  'age'
+  >>> a,b,c = s.items()
+  >>> a
+  ('name', 'rapt')
+  >>> a,b,c = s.values()
+  >>> c
+  'student'
+  ```
+
+#### 表格数据使用字典和列表存储：
+| name  | age  |   job   |   city   |
+| :---: | :--: | :-----: | :------: |
+| rapt  |  18  | student | Beijing  |
+| azure |  19  |   boy   | Shanghai |
+| happy |  1   |  girl   | Shenzhen |
+
+```python
+r1 = {'name':'rapt','age':18,'job':'student','city':'Beijing'}
+r2 = {'name':'azure','age':19,'job':'boy','city':'Sahnghai'}
+r3 = {'name':'happy','age':1,'job':'girl','city':'Shenzhen'}
+table = [r1,r2,r3]
+#获取第二行的job
+print(table[1].get("job"))
+print('')
+#打印表中所有job & age
+for i in range(len(table)):
+	print(table[i].get('job'),table[i].get('age'))
+```
+
+#### 字典核心底层原理：
+
+- 字典对象的核心是散列表，散列表是一个稀疏数组（总是有空白元素的数组），数组的每个单词叫做bucket，每个bucket有两个部分：一个是键对象的引用，一个是值对象的引用。由于所有bucket结构和大小一致，可以通过偏移量来读取指定bucket。
+
+  |  0   | key1 | value1 |
+  | :--: | :--: | :----: |
+  |  1   |      |        |
+  |  2   | key2 | value2 |
+  |  3   |      |        |
+  |  4   |      |        |
+  |  5   | key4 | value4 |
+- 将一个键值对放到字典的底层过程： 
