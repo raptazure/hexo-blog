@@ -15,15 +15,13 @@ categories: Data Structures
 
   数组各分量对应多项式各项 a[i]:项x^i^的系数a~i~
   
-  
-
-  ![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_101106.png?raw=true)
+  ![](LINEAR-LIST/Screenshot_20191006_101106.png)
 
 - 顺序储存结构表示非0项:
 
   可以用结构数组
 
-![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_102041.png?raw=true)
+<img src="LINEAR-LIST/Screenshot_20191006_102041.png" style="zoom:100%;" />
 
 - 链表结构储存非0项:
 
@@ -45,7 +43,7 @@ categories: Data Structures
 
   例如以上两个多项式可以用表示为
 
-  ![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_103227.png?raw=true)
+  ![](LINEAR-LIST/Screenshot_20191006_103227.png)
 
 ### 定义
 
@@ -72,7 +70,7 @@ categories: Data Structures
 
 1.利用数组的连续储存空间顺序存放线性表各元素
 
-![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_104812.png?raw=true)
+![](LINEAR-LIST/Screenshot_20191006_104812.png)
 
 ```c
 List MakeEmpty()
@@ -131,7 +129,7 @@ void Delete(int i, List PtrL)
 
 2.链式储存实现
 
-![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_112703.png?raw=true)
+![](LINEAR-LIST/Screenshot_20191006_112703.png)
 
 ```c
 //求表长 ->链表遍历
@@ -234,7 +232,7 @@ List Delete(int i,List PtrL)
 ### 广义表
 
 - 如何表示二元多项式?
- ![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_125923.png?raw=true)
+ ![](LINEAR-LIST/Screenshot_20191006_125923.png)
 
  1.广义表是线性表的推广
 
@@ -263,15 +261,15 @@ struct GNode
 
   2.树,图等复杂数据结构可以采用多重链表方式实现存储
 
-![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_131614.png?raw=true)
+![](LINEAR-LIST/Screenshot_20191006_131614.png)
 
-![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_131857.png?raw=true)
+![](LINEAR-LIST/Screenshot_20191006_131857.png)
 
 >   Term表示稀疏矩阵中非0元素结点,Head为头结点(标识域Tag区分)
 >
 > 左上角Term为入口结点,表示有四行五列,非0项共7项
 
-![](https://github.com/Raptazure/DataStructures-MOOC/blob/master/Pictures/Screenshot_20191006_132422.png?raw=true)
+![](LINEAR-LIST/Screenshot_20191006_132422.png)
 
 ### Con  -   线性表定义与操作-顺序表
 
