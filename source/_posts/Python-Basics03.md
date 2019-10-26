@@ -3,7 +3,7 @@ title: Python Basics03
 categories: Python
 ---
 
-# 常见结构
+# 控制语句
 
 ## 选择结构：
 
@@ -230,6 +230,75 @@ print(f"time cost:{end2 - start2}")
   linux--50--opt
   '''
   ```
+  
+- 推导式创建序列：推导式是从一个或多个迭代器快速创建序列的一种方法，它可以将循环和条件判断结合，从而简化代码。
+
+  ```python
+  # 列表推导式
+  # [表达式 for item in 可迭代对象 if 条件判断]
+  >>> [x for x in range(1,5)]
+  [1, 2, 3, 4]
+  >>> [x * 2 for x in range(1, 20) if x % 5 == 0]
+  [10, 20, 30]
+  >>> [a for a in 'abcdef']
+  ['a', 'b', 'c', 'd', 'e', 'f']
+  cells = [(row, col) for row in range(1, 10) for col in range(1, 10)]
+  for cell in cells:
+      print(cell)
+  # (1,1) to (9,9)
+  
+  # 字典推导式 
+  # {key_exp:value_exp for 表达式 in 可迭代对象}
+  my_text = 'i love programming, i love computers'
+  char_count = {c:my_text.count(c) for c in my_text}
+  print(char_count)
+  # {'i': 3, ' ': 5, 'l': 2, 'o': 4, 'v': 2, 'e': 3, 'p': 2, 'r': 3, 'g': 2, 'a': 1, 'm': 3, 'n': 1, ',': 1, 'c': 1, 'u': 1, 't': 1, 's': 1}
+  
+  #集合推导式 -> 没有key的字典
+  #{表达式 for item in 可迭代对象 if 条件判断}
+  >>> {x for x in range(1,100) if x%9 == 0}
+  {99, 36, 72, 9, 45, 81, 18, 54, 90, 27, 63}
+  
+  #生成器推导式：生成元组
+  >>> (x for x in range(1,100) if x%9 == 0)
+  <generator object <genexpr> at 0x7fddcf259e50>
+  #提示“一个生成器对象，可见元组没有推导式
+  gnt = (x for x in range(1,100) if x % 9 == 0)
+  print(tuple(gnt))
+  #(9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 99)
+  #生成器是可迭代对象
+  >>> gnt = (x for x in range(1,100) if x%9 == 0)
+  >>> for x in gnt:
+  	print(x, end = ' ' )
+  
+  ```
+## 小练习：多彩同心圆
+
+```python
+import turtle
+
+my_colors = ("red", "green", "blue", "yellow")
+t = turtle.Pen()
+t.width(5)
+t.speed(0)
+for i in range(30):
+    t.penup()
+    t.goto(0,- i * 10)
+    t.pendown()
+    t.color(my_colors[i % len(my_colors)])
+    t.circle(15 + i * 10)
+turtle.done()
+```
+
+
+
+​			
+
+
+
+
+
+  
 
   
 

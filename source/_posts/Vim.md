@@ -115,3 +115,23 @@ categories: Linux
 - 查询：`/` 或 `？` 进行前向或反向搜索，`n`或`N`跳转到下一个或上一个匹配。
 
    `*`或者`#`进行当前光标所处单词的前向和后向匹配。
+   
+#### Vim搜索替换：
+
+- substitute命令允许查找并替换文本，支持正则表达式。
+
+  `:[range]s[ubstitute]/{pattern}/{string}/[flags]`
+
+  range 10,20表示10～20行，%表示全部
+
+  pattern 要替换的模式，string是替换后的文本
+
+  flags 替换标志位 g - global，c - confirm
+
+  ​      n - 报告匹配到的次数而不替换，可用来查询匹配次数
+
+  比如`:%s/self/this/g`  `:1,6s/self/this/g`  `:1,6s/self//n`
+
+  `:%s/\<quack\>jiao/g` 使用正则精确替换一个单词
+
+  

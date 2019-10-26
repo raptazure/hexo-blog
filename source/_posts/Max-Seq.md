@@ -8,7 +8,7 @@ categories: Algorithms
   
   <!-- more -->
 
-1.最暴力：把所有连续子列和都算出来，从中找最大的那个
+1.最暴力：把所有连续子列和都算出来，从中找最大的那个。
 
 ```cpp
 int MaxSubseqSum1 (int a[], int N)
@@ -55,7 +55,7 @@ int MaxSubseqSum2 (int a[], int N)
 }
 ```
 
-​      时间复杂度为O(n2）--->  可否改进为O(nlgn)
+​      时间复杂度为O(n2）--->  可否改进为O(nlogn)
 
 3.分治算法：
 
@@ -109,7 +109,7 @@ int MaxSubseqSum3(int n,int a[]){
 
 4.在线处理（贪心算法）：
 
-​      不从整体最优上考虑而是求出局部最优解，只关心子列和当前的大小，如果临时和加上一个负数，则置临时和为0。时间复杂度为O(n)
+​      不从整体最优上考虑而是求出局部最优解，只关心子列和当前的大小，如果临时和加上一个负数，则置临时和为0。时间复杂度为O(n)。
 
 ```cpp
 int MaxSubseqSum4(int n,int a[])
@@ -137,7 +137,7 @@ int MaxSubseqSum1 (int n,int a[]);
 int MaxSubseqSum2 (int n,int a[]);
 int MaxSubseqSum3 (int n,int a[]);
 int MaxSubseqSum4 (int n,int a[]);
-​
+
 int main()
 {
     int n;
