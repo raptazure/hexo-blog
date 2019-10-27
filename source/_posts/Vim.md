@@ -134,4 +134,25 @@ categories: Linux
 
   `:%s/\<quack\>jiao/g` 使用正则精确替换一个单词
 
-  
+#### 多文件操作：
+
+- Buffer：打开的一个文件的内存缓冲区，Vim打开一个文件会加载文件到缓冲区，之后的修改都是针对内存中的缓冲区，并不会直接保存到文件，执行:w后才会把修改内容写入文件。使用`:ls`列举当前缓冲区，使用`:b`跳到第n个缓冲区。`bnext` 跳转到下一个缓冲区，`bpre` 跳转到上一个缓冲区，`:b buffer_name`使用tab补全进行跳转。
+
+- Window：Buffer的可视化分割区域。一个缓冲区可以分成多个缓冲区，每个窗口可以打开不同缓存区。`Crtl+w w`在窗口间循环切换。`:q`  可以关闭窗口，`crtl+w =`使所有窗口等宽等高。
+
+- Tab：组织窗口为一个工作区。Tab是可以容纳一系列窗口的容器，Vim的tab可以看成Linux虚拟桌面。`:tabe {filename}` 在新标签中打开filename  `：tabnew duck.py`打开一个编辑python文件的Tab(工作区)。
+
+#### Text Object:
+
+- Vim里文本也有对象的概念，比如一个单词，一段句子，一个段落。通过修改文本对象比修改单个字符高效。
+
+- 使用文本对象：`dw`删除一个单词  `[number]<command>[text object]`
+
+  number 次数，command - d(delete) c(change) y(yank)
+
+  text object - w(word) s(sentence) p(paragragh)
+
+  ![](Vim/Screenshot_20191027_093305.png)
+
+<img src="Vim/Screenshot_20191027_094013.png" style="zoom: 67%;" />
+
