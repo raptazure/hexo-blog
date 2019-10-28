@@ -57,7 +57,7 @@ categories: Linux
 #### 可视模式:
 
 - 快速选择文本 - hjkl选择S
-- V 选择行  - 执行各种命令,比如 d - 删除  y - 复制
+- V 进入visual模式并选择行  - 执行各种命令,比如 d - 删除  y - 复制
 - crtl+v 进入块状选择模式 - hjkl选择
 
 #### Vim快速移动: Normal/Visual
@@ -81,6 +81,8 @@ categories: Linux
 #### Vim快速增删改查：Normal
 
 - 增加：a/i/o  A/I/O
+
+- `:e!`重新加载当前文件
 
 - 删除：`x`删除一个字符，使用`d`配合文本对象快速删除一个单词
 
@@ -115,7 +117,6 @@ categories: Linux
 - 查询：`/` 或 `？` 进行前向或反向搜索，`n`或`N`跳转到下一个或上一个匹配。
 
    `*`或者`#`进行当前光标所处单词的前向和后向匹配。
-   
 #### Vim搜索替换：
 
 - substitute命令允许查找并替换文本，支持正则表达式。
@@ -156,3 +157,71 @@ categories: Linux
 
 <img src="Vim/Screenshot_20191027_094013.png" style="zoom: 67%;" />
 
+#### 复制粘贴与寄存器使用：
+
+- Vim Normal模式复制粘贴：
+  - 复制粘贴分别使用y - yank和p - put，剪贴 d和p。
+  - 可以使用v(visual)选择需要复制的地方，然后用p粘贴。
+  - 配合文本对象：比如使用yiw复制一个单词，yy复制一行。
+  
+- Vim Insert模式复制粘贴：
+  - 	在vimrc中设置autoindent会使Python代码缩进错乱，这时需要用`:set paste` `:set nopaste` 解决。
+  - 	Insert下使用ctrl+v或cmd+v粘贴即可。
+  
+- Vim的寄存器：
+
+  - Vim操作的是寄存器而不是系统剪贴板
+
+  - 默认使用d删除或y复制的内容放到“无名寄存器”
+
+  - 用x删除一个字符放到无名寄存器，然后p粘贴，可调换两个字符
+
+  - 深入寄存器：Vim不使用单一剪切版进行剪切，复制与粘贴，而是多组寄存器。通过`“{register}`前缀可以指定寄存器，不指定则默认使用无名寄存器。比如使用`“ayiw`复制一个单词到寄存器a中，`“bdd`删除当前行到寄存器b中。可使用`:reg a`查看a寄存器中的内容，`“ap`粘贴a寄存器中的内容。Vim中`“”`表示无名寄存器，缺省使用，`“” p`等同于p。
+
+  - 除了有名寄存器a-z，还有其他常见寄存器，比如复制专用寄存器`“0`使用y复制文本同时会被拷贝到复制寄存器0，在复制前加上`“+`表示复制到系统剪贴板，也可使用`:set clipboard=unnamed`直接启用系统剪贴板。还有一些寄存器比如“% 当前文件名 “. 上次插入的文本
+
+- 以上很多内容可在VS Code Vim - setting 里进行设置而使操作便利。
+
+#### Vim Macro：
+
+- 给多行url链接加上双引号 - 使用宏
+- 宏可以看成一系列命令的集合，可以使用宏录制一系列操作，然后再回放，从而快速把一系列命令用在多行文本上
+- Normal下使用q录制/结束录制，使用`q{register}`选择要保存的寄存器，把录制的命令保存到其中，比如`qa`。
+- 使用`@register`回放寄存器中保存的一系列命令
+- 可在操作结尾录制下一行操作，使用`number@a`实现多行批量操作
+
+#### 其他的话：
+
+​		一些Vim命令本文没有提到(因为有的在VS Code Vim下不支持，而窝主要是想用这个扩展让VS Code更高效…)，其实Vim还有自定义度极高的配置文件和很多强大的插件，可以自由探索，试试NeoVim也是很不错的。
+
+#### 图解Vim命令：
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/classic1.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-1.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-2.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-3.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-4.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-5.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-6.gif)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-7.gif)
+
+![](https://img2018.cnblogs.com/blog/1421031/201810/1421031-20181012102638613-723727017.png)
+
+![](https://img2018.cnblogs.com/blog/1421031/201810/1421031-20181012102643664-113196661.png)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/entry1.png)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/advanced1.png)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/morden1.png)
+
+![](https://www.runoob.com/wp-content/uploads/2015/10/text1.png)
