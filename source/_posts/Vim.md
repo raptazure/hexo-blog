@@ -214,10 +214,6 @@ categories: Linux
 
 ![](https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-7.gif)
 
-![](https://img2018.cnblogs.com/blog/1421031/201810/1421031-20181012102638613-723727017.png)
-
-![](https://img2018.cnblogs.com/blog/1421031/201810/1421031-20181012102643664-113196661.png)
-
 ![](https://www.runoob.com/wp-content/uploads/2015/10/entry1.png)
 
 ![](https://www.runoob.com/wp-content/uploads/2015/10/advanced1.png)
