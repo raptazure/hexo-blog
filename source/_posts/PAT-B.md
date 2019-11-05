@@ -113,7 +113,7 @@ NO
 |  APATA  | APATA -> APAATAA -> APAAATAAA -> APAAAATAAAA |
 | AAPATAA |    AAPATAA -> AAPAATAAAA -> AAPAAATAAAAAA    |
 
-可以发现：字符串中必须只有P，A，T，且P和T中间至少有一个A。字符串中只能有一个P和一个T。中间和首尾可以插入A，但是需要满足开头A个数 × 中间A个数 = 末尾A个数。
+​		可以发现：字符串中必须只有P，A，T，且P和T中间至少有一个A。字符串中只能有一个P和一个T。中间和首尾可以插入A，但是需要满足开头A个数 × 中间A个数 = 末尾A个数。
 
 ```cpp
 #include <iostream>
@@ -143,7 +143,7 @@ int main()
 }
 ```
 
-# 模拟：
+# 模拟
 
 ## 1001 害死人不偿命的(3n+1)猜想 
 
@@ -198,4 +198,202 @@ int main()
     return 0;
 }
 ```
+#  查找元素
+
+## 1004 成绩排名
+
+读入 *n*（>0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。
+
+### 输入格式：
+
+每个测试输入包含 1 个测试用例，格式为
+
+```
+第 1 行：正整数 n
+第 2 行：第 1 个学生的姓名 学号 成绩
+第 3 行：第 2 个学生的姓名 学号 成绩
+  ... ... ...
+第 n+1 行：第 n 个学生的姓名 学号 成绩
+```
+
+其中`姓名`和`学号`均为不超过 10 个字符的字符串，成绩为 0 到 100 之间的一个整数，这里保证在一组测试用例中没有两个学生的成绩是相同的。
+
+### 输出格式：
+
+对每个测试用例输出 2 行，第 1 行是成绩最高学生的姓名和学号，第 2 行是成绩最低学生的姓名和学号，字符串间有 1 空格。
+
+### 输入样例：
+
+```in
+3
+Joe Math990112 89
+Mike CS991301 100
+Mary EE990830 95
+```
+
+### 输出样例：
+
+```out
+Mike CS991301
+Joe Math990112
+```
+
+### Solutioin:
+
+​		一道很基础的搜索//
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, score;
+    cin >> n;
+    int min = 101, max = -1;
+    string name, num, minname, maxname, minnum, maxnum;
+    for(int i = 0; i < n; i++)
+    {
+        cin >> name >> num >> score;
+        if(score > max)
+        {
+            maxname = name;
+            maxnum = num;
+            max = score;
+        }
+        if(score < min)
+        {
+            minname = name;
+            minnum = num;
+            min = score;
+        }
+    }
+    cout << maxname << " " << maxnum << endl;
+    cout << minname << " " << minnum << endl;
+    return 0;
+}
+```
+# Hash
+
+## 1005 **继续(3n+1)猜想** 
+
+卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。
+
+当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对 *n*=3 进行验证的时候，我们需要计算 3、5、8、4、2、1，则当我们对 *n*=5、8、4、2 进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这 4 个数已经在验证3的时候遇到过了，我们称 5、8、4、2 是被 3“覆盖”的数。我们称一个数列中的某个数 *n* 为“关键数”，如果 *n* 不能被数列中的其他数字所覆盖。
+
+现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。
+
+### 输入格式：
+
+每个测试输入包含 1 个测试用例，第 1 行给出一个正整数 *K* (<100)，第 2 行给出 *K* 个互不相同的待验证的正整数 *n* (1<*n*≤100)的值，数字间用空格隔开。
+
+### 输出格式：
+
+每个测试用例的输出占一行，按从大到小的顺序输出关键数字。数字间用 1 个空格隔开，但一行中最后一个数字后没有空格。
+
+### 输入样例：
+
+```in
+6
+3 5 6 7 8 11
+```
+
+### 输出样例：
+
+```out
+7 6
+```
+
+### Solution：
+
+​		对每个输入的数字验证猜想，验证过程中出现的数字对应的q[n]都更新为1，之后利用sort函数对所有数进行排序，选择q[n]为0的值进行输出，即得关键数字(注意输出时对空格的控制)。这里选择了vector储存n，主要是考虑到其丰富的内置函数，比如`vector.begin()`返回指向第一个元素的迭代器，`end()`返回指向最后一个元素的下一个元素的迭代器，这样写sort的时候就很方便，还有`size()`可以方便地统计元素数量。由于sort函数默认由小到大排列，所以需要手动写cmp函数。注意q的大小应该大于等于100×100，否则可能会segmentation fault。
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int q[10010];
+bool cmp(int a, int b)
+{
+    return a > b;
+}
+int main()
+{
+    int k, n, flag = 0;
+    cin >> k;
+    vector<int> v(k);
+    for(int i = 0; i < k; i++)
+    {
+        cin >> n;
+        v[i] = n;
+        while(n != 1)
+        {
+            if(n % 2 != 0) n = 3 * n + 1;
+            n /= 2;
+            if(q[n] == 1) break;
+            q[n] = 1;
+        }
+    }
+    sort(v.begin(), v.end(), cmp);
+    for(int i = 0; i < v.size(); i++)
+    {
+        if(q[v[i]] == 0)
+        {
+            if(flag == 1)  cout << " ";
+            cout << v[i];
+            flag = 1;
+        }
+    }
+    return 0;
+}
+```
+
+- 不过由于这道题v中一共只有k个元素，其实也可以不用vector，如下：
+
+```cpp
+#include <iostream> 
+#include <algorithm>
+using namespace std;
+int q[10010];
+bool cmp(int a, int b)
+{
+    return a > b;
+}
+int main()
+{
+    int k, n, flag = 0;
+    cin >> k;
+    int h[k];
+    for (int i = 0; i < k; i++)
+    {
+        cin >> n;
+        h[i] = n;
+        while (n != 1)
+        {
+            if(n % 2 != 0) n = 3 * n + 1;
+            n /= 2;
+            if(q[n] == 1) break;
+            q[n] = 1;
+        }
+    }
+    sort(h, h + k, cmp);
+    for(int i = 0; i < k; i++)
+    {
+       if(q[h[i]] == 0)
+       {
+        if(flag == 1) cout << " ";
+        cout << h[i];
+        flag = 1;
+       }
+    }
+    return 0;
+}
+```
+
+  
+
+​				
+
+
+
 
