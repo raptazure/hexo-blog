@@ -143,6 +143,115 @@ int main()
 }
 ```
 
+## 1006 换个格式输出整数
+
+让我们用字母 `B` 来表示“百”、字母 `S` 表示“十”，用 `12...n` 来表示不为零的个位数字 `n`（<10），换个格式来输出任一个不超过 3 位的正整数。例如 `234` 应该被输出为 `BBSSS1234`，因为它有 2 个“百”、3 个“十”、以及个位的 4。
+
+### 输入格式：
+
+每个测试输入包含 1 个测试用例，给出正整数 *n*（<1000）。
+
+### 输出格式：
+
+每个测试用例的输出占一行，用规定的格式输出 *n*。
+
+### 输入样例 1：
+
+```in
+234
+```
+
+### 输出样例 1：
+
+```out
+BBSSS1234
+```
+
+### 输入样例 2：
+
+```in
+23
+```
+
+### 输出样例 2：
+
+```out
+SS123
+```
+
+### Solution:
+
+​		//一道比较简单的字符串处理，注意一下按位存到数组里就行了，或者甚至可以不开数组…
+
+```cpp
+#include <iostream>
+using namespace std;
+int b[3];
+int main()
+{
+    int n, i = 0;
+    scanf("%d", &n);
+    while(n)
+    {
+        b[i] = n % 10;
+        n /= 10;
+        i++;
+    }
+    for(int i = 0; i < b[2]; i++) printf("B");
+    for(int i = 0; i < b[1]; i++) printf("S");
+    for(int i = 1; i <= b[0]; i++) printf("%d",i);
+    return 0;
+}
+```
+
+## 1009 说反话
+
+给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。
+
+### 输入格式：
+
+测试输入包含一个测试用例，在一行内给出总长度不超过 80 的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用 1 个空格分开，输入保证句子末尾没有多余的空格。
+
+### 输出格式：
+
+每个测试用例的输出占一行，输出倒序后的句子。
+
+### 输入样例：
+
+```in
+Hello World Here I Come
+```
+
+### 输出样例：
+
+```out
+Come I Here World Hello
+```
+
+### Solution:
+
+​		根据输入输出的规律，考虑可以用栈来实现
+
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<string> v;
+    string s;
+    while(cin >> s) v.push(s);
+    cout << v.top();
+    v.pop();
+    while(!v.empty())
+    {
+        cout << " " << v.top();
+        v.pop();
+    }
+    return 0;
+}
+```
+
 # 模拟
 
 ## 1001 害死人不偿命的(3n+1)猜想 
@@ -177,7 +286,7 @@ int main()
 
 ### Solution：
 
-​		第一题，没啥好说的//
+​		//第一题，没啥好说的
 
 ```cpp
 #include <iostream>
@@ -198,7 +307,93 @@ int main()
     return 0;
 }
 ```
-#  查找元素
+## 1008 数组元素循环右移问题
+
+一个数组*A*中存有*N*（>0）个整数，在不允许使用另外数组的前提下，将每个整数循环向右移*M*（≥0）个位置，即将*A*中的数据由（*A*[0]*A*[1]⋯*A[N−1]）变换为（*A[N−*M]⋯*A[N−1]A[0]A[1]⋯A[N−M−1]）（最后*M*个数循环移至最前面的*M*个位置）。如果需要考虑程序移动数据的次数尽量少，要如何设计移动的方法？
+
+### 输入格式:
+
+每个输入包含一个测试用例，第1行输入*N*（1≤*N*≤100）和*M*（≥0）；第2行输入*N*个整数，之间用空格分隔。
+
+### 输出格式:
+
+在一行中输出循环右移*M*位以后的整数序列，之间用空格分隔，序列结尾不能有多余空格。
+
+### 输入样例:
+
+```in
+6 2
+1 2 3 4 5 6
+```
+
+### 输出样例:
+
+```out
+5 6 1 2 3 4
+```
+
+### Solution：
+
+​		观察测试用例，由123456变为561234，考虑到algorithm里的reverse很方便，可以多次(局部)倒置数组来实现循环右移，即数组全部倒置 -> 前M个元素倒置 -> 剩下的N - M个元素倒置。注意如果M > N，那么向右循环移动M位净效果为向右移动M % N位，所以使用M前需要先执行M = M % N。
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    vector<int> v(n);
+    for(int i = 0; i < n; i++)
+        cin >> v[i];
+    m %= n;
+    if(m)
+    {
+        reverse(begin(v), begin(v) + n);
+        reverse(begin(v), begin(v) + m);
+        reverse(begin(v) + m, begin(v) + n);
+    }
+    for(int i = 0; i < n; i++)
+    {
+        if(i < n - 1) cout << v[i]<<" ";
+        else cout << v[i];
+    }
+    return 0;
+}
+```
+
+```cpp
+//这个题当然也可以不用vector，可以对比一下写法(其实差不多少哇)
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    int a[n];
+    for(int i = 0; i < n; i++)
+        cin >> a[i];
+    m %= n;
+    if(m)
+    {
+        reverse(a, a + n);
+        reverse(a, a + m);
+        reverse(a + m, a + n);
+    }
+    for(int i = 0; i < n; i++)
+    {
+        if(i < n - 1) cout << a[i]<<" ";
+        else cout << a[i];
+    }
+    return 0;
+}
+```
+
+# 查找元素
 
 ## 1004 成绩排名
 
@@ -240,7 +435,7 @@ Joe Math990112
 
 ### Solutioin:
 
-​		一道很基础的搜索//
+​		//一道很基础的搜索
 
 ```cpp
 #include <iostream>
@@ -390,9 +585,61 @@ int main()
 }
 ```
 
-  
+# 素数
 
-​				
+  ## 1007 素数对猜想
+
+让我们定义d[n]为：d[n]=p[n+1]−p[n]，其中*p[i]*是第*i*个素数。显然有*d*[1]=1，且对于*n*>1有*d[n]*是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。
+
+现给定任意正整数`N`(<105)，请计算不超过`N`的满足猜想的素数对的个数。
+
+### 输入格式:
+
+输入在一行给出正整数`N`。
+
+### 输出格式:
+
+在一行中输出不超过`N`的满足猜想的素数对的个数。
+
+### 输入样例:
+
+```in
+20
+```
+
+### 输出样例:
+
+```out
+4
+```
+
+### Solution：
+
+​		基础：判断是否为素数的函数。根据题意，素数对即是相邻且相差2的两个素数，比如3,5,7就包含两个素数对。
+
+```cpp
+#include <iostream>
+using namespace std;
+bool isPrime(int a)
+{
+    for(int i = 2; i * i <= a; i++)
+        if(a % i == 0) return false;
+    return true;
+}
+int main()
+{
+    int n, cnt = 0;
+    cin >> n;
+    for(int i = 5; i <= n; i++)
+        if(isPrime(i) && isPrime(i - 2)) cnt++;
+    cout << cnt;
+    return 0;
+}
+```
+
+
+
+
 
 
 
