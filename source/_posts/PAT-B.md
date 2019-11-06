@@ -230,7 +230,7 @@ Come I Here World Hello
 
 ### Solution:
 
-​		根据输入输出的规律，考虑可以用栈来实现
+​		根据输入输出的规律，考虑可以用栈来实现。将输入的每个单词用v.push(s)压入栈中，再输出栈顶v.top()，然后将栈顶元素弹出v.pop()，直到栈空为止。
 
 ```cpp
 #include <iostream>
@@ -247,6 +247,63 @@ int main()
     {
         cout << " " << v.top();
         v.pop();
+    }
+    return 0;
+}
+```
+
+​		另外，因为PAT是单点测试，所以可用EOF判断单词是否已经输入完毕。注意在黑框手动输入时，系统不知道什么时候到达了“文件末尾”，需要Ctrl Z+Enter来告诉系统到达了EOF，这样系统才会结束while。
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    int num = 0;//单词个数
+    char ans[90][90];//单词数，字母数
+    while(scanf("%s",ans[num]) != -1)//输入直到文件末尾
+        num++;  //单词个数加1
+    for(int i = num - 1; i >= 0; i--)//倒着输出单词
+    {
+        printf("%s",ans[i]);
+        if(i > 0) printf(" ");
+    }
+    return 0;
+}
+```
+
+​		还有一种很麻烦的做法，c语言风格，注意`fgets()`函数会读入回车符而不是像`gets()`函数(可是这个函数已经被c11标准删除，OJ上似乎也挂掉了)一样直接把\n转换为\0，所以需要借助字符指针修改掉被读入的\n。
+
+```cpp
+#include <cstdio>
+#include <cstring>
+int main()
+{
+    char str[90];
+    char * find;
+    fgets(str, sizeof(str), stdin);
+    
+    find = strchr(str, '\n');  //查找换行符
+    if(find)         //如果find不为空指针
+        *find = '\0'; 
+
+    int len = strlen(str), r = 0, h = 0; //r为行，h为列
+    char ans[90][90];   //ans[0] 到 ans[r] 存放单词
+    for (int i = 0; i < len; i++)
+    {
+        if(str[i] != ' ')//如果不是空格，存放至ans[r][h]并h++
+            ans[r][h++] = str[i];
+        else //如果是空格，说明一个单词结束，行增加1,列恢复为0
+        {
+            ans[r][h] = '\0';  //末尾是结束符\0
+            r++;
+            h = 0;
+        }
+    }
+    for (int i = r; i >= 0; i--)  //倒序输出单词
+    {
+        printf("%s", ans[i]);
+        if(i > 0) printf(" ");
     }
     return 0;
 }
