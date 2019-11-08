@@ -550,6 +550,184 @@ int main()
 }
 ```
 
+## 1012 数字分类
+
+给定一系列正整数，请按要求对数字进行分类，并输出以下 5 个数字：
+
+- *A*1 = 能被 5 整除的数字中所有偶数的和；
+- *A*2 = 将被 5 除后余 1 的数字按给出顺序进行交错求和，即计算 *n*1−*n*2+*n*3−*n*4⋯；
+- *A*3 = 被 5 除后余 2 的数字的个数；
+- *A*4 = 被 5 除后余 3 的数字的平均数，精确到小数点后 1 位；
+- *A*5 = 被 5 除后余 4 的数字中最大数字。
+
+### 输入格式：
+
+每个输入包含 1 个测试用例。每个测试用例先给出一个不超过 1000 的正整数 *N*，随后给出 *N* 个不超过 1000 的待分类的正整数。数字间以空格分隔。
+
+### 输出格式：
+
+对给定的 *N* 个正整数，按题目要求计算 *A*1~*A*5 并在一行中顺序输出。数字间以空格分隔，但行末不得有多余空格。
+
+若其中某一类数字不存在，则在相应位置输出 `N`。
+
+### 输入样例 1：
+
+```in
+13 1 2 3 4 5 6 7 8 9 10 20 16 18
+```
+
+### 输出样例 1：
+
+```out
+30 11 2 9.7 9
+```
+
+### 输入样例 2：
+
+```in
+8 1 2 4 5 6 7 9 16
+```
+
+### 输出样例 2：
+
+```out
+N 11 2 N 9
+```
+
+### Solution:
+
+​		数字取余后的结果i保存在v[i]向量中，对v[i]中每个元素按照不同i分类计算，注意如何才能安照题目要求输出。
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n, num, A1 = 0, A2 = 0, A5 = 0;
+    double A4 = 0.0;
+    cin >> n;
+    vector<int> v[5];
+    for (int i = 0; i < n; i++) {
+        cin >> num;
+        v[num%5].push_back(num);
+    }
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            if (i == 0 && v[i][j] % 2 == 0) A1 += v[i][j];
+            if (i == 1 && j % 2 == 0) A2 += v[i][j];
+            if (i == 1 && j % 2 == 1) A2 -= v[i][j];
+            if (i == 3) A4 += v[i][j];
+            if (i == 4 && v[i][j] > A5) A5 = v[i][j];
+        }
+    }
+    for (int i = 0; i < 5; i++) {
+        if (i != 0) printf(" ");
+        if (i == 0 && A1 == 0 || i != 0 && v[i].size() == 0) {
+            printf("N"); continue;
+        }
+        if (i == 0) printf("%d", A1);
+        if (i == 1) printf("%d", A2);
+        if (i == 2) printf("%d", v[2].size());
+        if (i == 3) printf("%.1f", A4 / v[3].size());
+        if (i == 4) printf("%d", A5);
+    }
+    return 0;
+}
+```
+
+​		//这个题用数组很麻烦…要声明很多变量…所以推荐vector
+
+```cpp
+#include <iostream>
+#include <cmath>
+using namespace std;
+int q[1010], b[1010] ,num[5];
+int main()
+{
+    int n, j = 0;
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++) scanf("%d", &q[i]);
+    int sum1 = 0, sum2 = 0, max5 = 0;
+    double sum4 = 0.0;
+    for(int i = 0; i < n; i++)
+    {
+        if(q[i] % 5 == 0 && q[i] % 2 == 0) {sum1 += q[i];num[0]++;}
+        if(q[i] % 5 == 1) {b[j++] = q[i]; num[1]++;}
+        if(q[i] % 5 == 2) num[2]++;
+        if(q[i] % 5 == 3) {
+            sum4 += q[i]; num[3]++;
+        }
+        if(q[i] % 5 == 4 && q[i] > max5) {max5 = q[i]; num[4]++;} 
+    }
+    for(int i = 0; i <= j; i++) sum2 += pow(-1, i) * b[i];
+    for (int i = 0; i < 5; i++) {
+        if (i != 0) printf(" ");
+        if (num[i] == 0) {
+            printf("N"); continue;
+        }
+        if (i == 0) printf("%d", sum1);
+        if (i == 1) printf("%d", sum2);
+        if (i == 2) printf("%d", num[2]);
+        if (i == 3) printf("%.1f", sum4 / num[3]);
+        if (i == 4) printf("%d", max5);
+    }
+    return 0;
+}
+```
+
+​		//还有一种思路，比较麻烦…
+
+```cpp
+#include <cstdio>
+int main()
+{
+    int count[5] = {0};
+    int ans[5] = {0};
+    int n, temp;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++){
+        scanf("%d", &temp); //读入数字
+        if (temp % 5 == 0)  //A1类
+        {
+            if(temp % 2 == 0)
+            {
+                ans[0] += temp;
+                count[0]++;
+            }
+        }
+        else if (temp % 5 == 1)  //A2类
+        {
+            if(count[1] % 2 == 0) ans[1] += temp;
+            else ans[1] -= temp;
+            count[1]++;
+        }
+        else if (temp % 5 == 2) count[2]++;  //A3类
+        else if (temp % 5 == 3)  //A4类
+        {
+            ans[3] += temp;
+            count[3]++;
+        }
+        else  //A5类
+        {
+            if (temp > ans[4])
+                ans[4] = temp;
+            count[4]++;
+        }
+    }
+    if(count[0] == 0) printf("N ");
+    else printf("%d ", ans[0]);
+    if(count[1] == 0) printf("N ");
+    else printf("%d ", ans[1]);
+    if(count[2] == 0) printf("N ");
+    else printf("%d ", count[2]);
+    if(count[3] == 0) printf("N ");
+    else printf("%.1f ",(double)ans[3] / count[3]);
+    if(count[4] == 0) printf("N");
+    else printf("%d", ans[4]);
+    return 0;
+}
+```
+
 # 查找元素
 
 ## 1004 成绩排名
@@ -793,10 +971,100 @@ int main()
 }
 ```
 
+## 1013  数素数
 
+令 P[i]表示第 *i* 个素数。现任给两个正整数 *M*≤*N*≤104，请输出 *P[M]* 到 *P[N]* 的所有素数。
 
+### 输入格式：
 
+输入在一行中给出 *M* 和 *N*，其间以空格分隔。
 
+### 输出格式：
 
+输出从 P[M]到 P[N] 的所有素数，每 10 个数字占 1 行，其间以空格分隔，但行末不得有多余空格。
 
+### 输入样例：
+
+```in
+5 27
+```
+
+### 输出样例：
+
+```out
+11 13 17 19 23 29 31 37 41 43
+47 53 59 61 67 71 73 79 83 89
+97 101 103
+```
+
+### Solution：
+
+​		需要先利用计数器cnt给n之前的素数编上号，并将其中大于等于m的部分存进数组ans里，之后再次利用cnt进行计数，每次数到十的倍数都换行，在每行第一次输出时不需要在数字前输出空格，以此控制每行结尾没有额外的空格。
+
+```cpp
+#include <iostream>
+using namespace std;
+int ans[10010];
+bool isPrime(int a)
+{
+    for (int i = 2; i * i <= a; i++)
+        if(a % i == 0) return false;
+    return true;
+}
+int main()
+{
+    int m, n, j = 0, cnt = 0, num = 2;
+    cin >> m >> n;
+    while (cnt < n)
+    {
+        if(isPrime(num)){
+            cnt++;
+            if (cnt >= m) ans[j++] = num;
+        }
+        num++;
+    }
+    cnt = 0;
+    for (int i = 0; i < j; i++)
+    {
+        cnt++;
+        if(cnt % 10 != 1) printf(" ");
+        printf("%d", ans[i]);
+        if(cnt % 10 == 0) printf("\n");
+    }
+    return 0;
+}
+```
+
+​		当然这个题也能使用vector储存素数，可以省略一些变量和index操作。
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+bool isprime(int a) {
+    for (int i = 2; i * i <= a; i++)
+        if(a % i == 0) return false;
+    return true;
+}
+int main() {
+    int M, N, num = 2, cnt = 0;
+    cin >> M >> N;
+    vector<int> v;
+    while (cnt < N) {
+        if (isprime(num)) {
+            cnt++;
+            if (cnt >= M) v.push_back(num);
+        }
+        num++;
+    }
+    cnt = 0;
+    for (int i = 0; i < v.size(); i++) {
+        cnt++;
+        if (cnt % 10 != 1) printf(" ");
+        printf("%d", v[i]);
+        if (cnt % 10 == 0) printf("\n");
+    }
+    return 0;
+}
+```
 
