@@ -7,7 +7,7 @@ categories: Linux
 ​       用manjaro KDE也有一段时间了，在感受Plasma各种便捷美观的同时，也在不断探索更轻量高效的桌面环境，直到在TheCW的视频里发现了i3wm～
 
 面对可以变得超漂亮又可以提高效率的i3，怎么能不去尝试一下呢？
-
+<!--more-->
 ## Some Softwares：
 
 - `fish` - A smart and user-friendly command shell for Linux.
