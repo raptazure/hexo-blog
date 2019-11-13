@@ -801,6 +801,176 @@ int main()
 }
 ```
 
+# 排序
+
+## 1015 德才论
+
+宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”
+
+现给出一批考生的德才分数，请根据司马光的理论给出录取排名。
+
+### 输入格式：
+
+输入第一行给出 3 个正整数，分别为：*N*（≤105），即考生总数；*L*（≥60），为录取最低分数线，即德分和才分均不低于 *L* 的考生才有资格被考虑录取；*H*（<100），为优先录取线——德分和才分均不低于此线的被定义为“才德全尽”，此类考生按德才总分从高到低排序；才分不到但德分到线的一类考生属于“德胜才”，也按总分排序，但排在第一类考生之后；德才分均低于 *H*，但是德分不低于才分的考生属于“才德兼亡”但尚有“德胜才”者，按总分排序，但排在第二类考生之后；其他达到最低线 *L* 的考生也按总分排序，但排在第三类考生之后。
+
+随后 *N* 行，每行给出一位考生的信息，包括：`准考证号 德分 才分`，其中`准考证号`为 8 位整数，德才分为区间 [0, 100] 内的整数。数字间以空格分隔。
+
+### 输出格式：
+
+输出第一行首先给出达到最低分数线的考生人数 *M*，随后 *M* 行，每行按照输入格式输出一位考生的信息，考生按输入中说明的规则从高到低排序。当某类考生中有多人总分相同时，按其德分降序排列；若德分也并列，则按准考证号的升序输出。
+
+### 输入样例：
+
+```in
+14 60 80
+10000001 64 90
+10000002 90 60
+10000011 85 80
+10000003 85 80
+10000004 80 85
+10000005 82 77
+10000006 83 76
+10000007 90 78
+10000008 75 79
+10000009 59 90
+10000010 88 45
+10000012 80 100
+10000013 90 99
+10000014 66 60
+```
+
+### 输出样例：
+
+```out
+12
+10000013 90 99
+10000012 80 100
+10000003 85 80
+10000011 85 80
+10000004 80 85
+10000007 90 78
+10000006 83 76
+10000005 82 77
+10000002 90 60
+10000014 66 60
+10000008 75 79
+10000001 64 90
+```
+
+### Solution：
+
+先看看分类要求：
+
+- 德才分中有一个低于L，为第五类。
+- 德才均不低于H，为第一类。
+- 德不低于H，才低于L，为第二类
+- 德才均低于L但德大于才，为第三类
+- 剩下为第四类
+
+再看看排序要求：
+
+- 先比类别
+
+- 类别相同比总分
+
+- 总分相同比德
+
+- 德相同比考号
+
+考虑到数据的组织关系，想到可以用结构体。结构体数组`vector<node> v[4]`中v[0]保存第一类考生，v[1]保存第二类考生…这样可以使分类更加清晰。注意cmp函数中，排序先按照总分排序，然后按照德分排序，最后按照才分排序…然后输出前四类学生的信息。
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+struct node{
+    int num, de, cai;
+};
+int cmp(struct node a, struct node b)
+{    if((a.de + a.cai) != (b.de + b.cai)) 
+        return (a.de + a.cai) > (b.de + b.cai);
+    else if(a.de != b.de)  return a.de > b.de;
+        else return a.num < b.num;
+}
+int main()
+{
+    int n, low, high;
+    scanf("%d%d%d", &n, &low, &high);   
+    vector<node> v[4];
+    node temp;
+    int total = n;
+    for(int i = 0; i < n; i++) 
+    {
+        scanf("%d%d%d",&temp.num, &temp.de, &temp.cai);
+        if(temp.de < low || temp.cai < low) total--;
+        else if(temp.de >= high && temp.cai >= high)
+            v[0].push_back(temp);
+        else if(temp.de >= high && temp.cai < high)
+            v[1].push_back(temp);
+        else if(temp.de < high && temp.cai < high && temp.de >= temp.cai)
+            v[2].push_back(temp);
+        else v[3].push_back(temp);
+    }
+    printf("%d\n", total);
+    for(int i = 0; i < 4; i++)
+    {
+        sort(v[i].begin(), v[i].end(), cmp);
+        for(int j = 0; j < v[i].size(); j++)
+            printf("%d %d %d\n", v[i][j].num, v[i][j].de, v[i][j].cai);
+    }
+    return  0;
+}
+```
+
+​     还有一种解法：
+
+```cpp
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+struct Student{
+	char id[10];
+	int de, cai, sum;
+	int flag;  //考生类别
+}stu[100010];
+bool cmp(Student a, Student b)
+{
+	if(a.flag != b.flag) //类别小的在前
+		return a.flag < b.flag;
+	else if(a.sum != b.sum)
+		return a.sum > b.sum; //总分大的在前
+	else if(a.de != b.de)  //德大的在前
+		return a.de > b.de; //考号小的在前 
+	else return strcmp(a.id, b.id) < 0;
+}
+int main(){
+	int n, L, H;
+	scanf("%d%d%d", &n, &L, &H);
+	int m = n;  //m为及格人数
+	for(int i = 0; i < n; i++)
+	{
+		scanf("%s%d%d", stu[i].id, &stu[i].de, &stu[i].cai);
+		stu[i].sum = stu[i].de + stu[i].cai;  //计算总分
+		if(stu[i]. de < L || stu[i].cai < L) //不及格
+		{
+			stu[i].flag = 5;
+			m--;
+		}
+		else if(stu[i].de >= H && stu[i].cai >= H) stu[i].flag = 1;   
+		else if(stu[i].de >= H && stu[i].cai < H) stu[i].flag = 2;
+		else if(stu[i].de >= stu[i].cai) stu[i].flag = 3;
+		else stu[i].flag = 4;  //第4类情况最多，放在最后
+	}
+	sort(stu, stu + n, cmp);
+	printf("%d\n", m);
+	for(int i = 0; i < m; i++)
+		printf("%s %d %d\n", stu[i].id, stu[i].de, stu[i].cai);
+	return 0;
+}
+```
+
 # 查找元素
 
 ## 1004 成绩排名
