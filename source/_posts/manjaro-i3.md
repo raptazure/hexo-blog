@@ -30,7 +30,7 @@ categories: Linux
 
 - `compton` - A compositor for X. 
 
-  可以配合alacritty实现终端模拟器的半透明化，也可以使用这个版本 (https://github.com/Raptazure/compton) 并通过编写配置文件来实现所有窗口的毛玻璃效果～配置也可以通过`conpton-conf`完成。
+  可以配合alacritty实现终端模拟器的半透明化，也可以使用这个版本 (https://github.com/Raptazure/compton) 并通过编写配置文件来实现所有窗口的毛玻璃效果～配置也可以通过`compton-conf`完成。
 
 - `neo-vim` - 打造属于你的超级文本编辑器～
 
