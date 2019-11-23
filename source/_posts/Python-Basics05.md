@@ -1,5 +1,5 @@
 ---
-title: Python Basics05
+title: Python OOP
 categories: Python
 ---
 # 面向对象编程
@@ -805,3 +805,125 @@ print(m2, m2.cpu, m2.screen)
   '''
   ```
 
+## 设计模式
+
+- 设计模式是面向对象语言特有的内容，是我们在面临某一类问题时候固定的做法，设计模式有很多种，比较流行的是：GOF(Group of Four)23种设计模式。
+
+- 工厂模式：实现了创建者与调用者的分离，使用专门的工厂类将选择实现类、创建对象进行统一的管理和控制
+
+  ```python
+  class CarFactory:
+      def create_car(self, brand):
+          if brand == 'Benz':
+              return Benz()
+          elif brand == 'BMW':
+              return BWM()
+          elif brand == 'Lamboghini':
+              return Lamboghini()
+          else:
+              return "unknown"
+  
+  class Benz:
+      pass
+  
+  class BWM:
+      pass
+  
+  class Lamboghini:
+      pass
+  
+  factory = CarFactory()
+  c1 = factory.create_car('Benz')
+  c2 = factory.create_car('BMW')
+  print(c1)
+  print(c2)
+  '''
+  <__main__.Benz object at 0x7f334f5b1ad0>
+  <__main__.BWM object at 0x7f334f5b1b10>
+  '''
+  ```
+
+- 单例模式(Singleton Pattern)：核心作用是确保一个类只有一个实例，并且提供一个访问该实例的全局访问点。单例模式只生成一个实例对象，减少了对系统资源的开销。当一个对象的产生需要比较多的资源，如读取配置文件，产生其他依赖对象时，可以产生一个“单例对象”，然后永久驻留在内存中，从而降低开销。
+
+```python
+class MySingleton:
+    __obj = None
+    __init__flag = True
+    def __new__(cls, *args, **kwargs):
+        if cls.__obj is None:
+            cls.__obj = object.__new__(cls)
+        return cls.__obj
+    
+    def __init__(self, name):
+        if MySingleton.__init__flag:
+            print("Initializing...")
+            self.name = name
+            MySingleton.__init__flag = False
+
+a = MySingleton("a")
+b  = MySingleton("b")
+c = MySingleton("c")
+print(a)
+print(b)
+print(c)
+'''
+Initializing...
+<__main__.MySingleton object at 0x7f6f0dc1c890>
+<__main__.MySingleton object at 0x7f6f0dc1c890>
+<__main__.MySingleton object at 0x7f6f0dc1c890>
+'''
+```
+
+- 工厂+单例：
+
+  ```python
+  class CarFactory:
+      __obj = None
+      __init__flag = True
+      
+      def create_car(self, brand):
+          if brand == 'Benz':
+              return Benz()
+          elif brand == 'BMW':
+              return BWM()
+          elif brand == 'Lamboghini':
+              return Lamboghini()
+          else:
+              return "unknown"
+      
+      def __new__(cls, *args, **kwargs):
+          if cls.__obj is None:
+              cls.__obj = object.__new__(cls)
+          return cls.__obj
+      
+      def __init__(self):
+          if CarFactory.__init__flag:
+              print("Initializing CarFactory...")
+              CarFactory.__init__flag = False
+  
+  class Benz:
+      pass
+  
+  class BWM:
+      pass
+  
+  class Lamboghini:
+      pass
+  
+  factory = CarFactory()
+  c1 = factory.create_car('Benz')
+  c2 = factory.create_car('BMW')
+  print(c1)
+  print(c2)
+  
+  factory2 = CarFactory()
+  print(factory)
+  print(factory2)
+  '''
+  Initializing CarFactory...
+  <__main__.Benz object at 0x7f62ca5dfc10>
+  <__main__.BWM object at 0x7f62ca5dfc50>
+  <__main__.CarFactory object at 0x7f62ca5dfbd0>
+  <__main__.CarFactory object at 0x7f62ca5dfbd0>
+  '''
+  ```

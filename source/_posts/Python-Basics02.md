@@ -1,5 +1,5 @@
 ---
-title: Python Basics02
+title: Python Sequence
 categories: Python
 ---
 

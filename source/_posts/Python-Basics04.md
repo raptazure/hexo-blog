@@ -1,7 +1,6 @@
 ---
-title: Python Basics04
+title: Python Function
 categories: Python
-
 ---
 # 函数
 ## 基本概念：
