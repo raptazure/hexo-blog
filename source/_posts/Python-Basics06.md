@@ -149,3 +149,117 @@ categories: Python
       print(e)
   ```
 
+- try…except…else结构：如果try块没有抛出异常则执行else块，如果抛出异常则执行except块。
+
+  ```python
+  try:
+      a = input("please enter the dividend:")
+      b = input("please enter the divisor:")
+      c = float(a) / float(b)
+  except BaseException as e:
+      print(e)
+  else:
+      print("the result is:", c)
+  ```
+
+- try…except…finally结构：finally块都会被执行，通常用来释放try块中申请的资源。
+
+  ```python
+  try:
+      a = input("please enter the dividend:")
+      b = input("please enter the divisor:")
+      c = float(a) / float(b)
+  except BaseException as e:
+      print(e)
+  else:
+      print("the result is:", c)
+  finally:
+      print("I am always here!!")
+  
+  print("the end.")
+  ```
+
+  ```python
+  try:
+      f = open("~/manjaro.txt", "r")
+      content = f.readline()
+      print(content)
+  except:
+      print("Not found!")
+  finally:
+      try:
+          f.close()
+      except BaseException as e:
+          print(e)
+  print("the end.")
+  ```
+
+- 一般不把return语句放在异常处理结构中，而是放到方法最后。
+
+## with上下文管理
+
+​		除了使用finally释放资源外，还可以通过with进行上下文管理，更方便实现释放资源的操作。结构为`with context_expr [as var]`。with上下文管理可以自动管理资源，在with代码执行完毕后自动还原进入该代码之前的现场或上下文。不管何种原因跳出with，不论是否有异常，总能保证资源正常释放，极大地简化了工作，在文件操作，网络通信相关的场合很有用。
+
+```python
+with open("d:/manjaro.txt", "r") as f:
+    content = f.readline()
+    print(content)
+
+print("the end.")
+```
+
+## Traceback
+
+- 使用traceback模块打印异常信息：
+
+  ```python
+  import traceback
+  try:
+      print("step01")
+      num = 1 / 0
+  except:
+      traceback.print_exc()
+  ```
+
+- 使用traceback将异常信息写入日志文件：
+
+  ```python
+  import traceback
+  try:
+      print("step01")
+      num = 1 / 0
+  except:
+      with open("d:/a.txt", "a") as f:
+          traceback.print_exc(file = f)
+  ```
+
+## 自定义异常类
+
+- 自定义异常类一般都是运行时异常，通常继承Exception或其子类，命名一般以Error，Exception为后缀。自定义异常由raise语句主动跳出。
+
+  ```python
+  class AgeError(Exception):
+      def __init__(self, errorInfo):
+          Exception.__init__(self)
+          self.errorInfo = errorInfo
+  
+      def __str__(self):
+          return str(self.errorInfo) + " age should be between 0 and 200!"
+  
+  if __name__ == "__main__":
+      # 如果为True则模块作为独立文件运行，可以执行测试代码
+      age = int(input("please enter your age:"))
+      if age < 0 or age > 200:
+          raise AgeError(age)
+      else:
+          print("normal age!", age)
+  ```
+
+## 断点调试相关
+
+- 浏览帧中，调试器列出断点处当前线程正在运行的方法，每个方法对应一个“栈帧”，最上面的是当前断点所处的方法。变量值观察区中，调试器列出了断点处所在方法相关的变量值，可以用来查看变量值的变化。
+- 单步调试：
+  - step over：遇到函数跳过，若当前执行的是一个函数，则把函数当作整体一步执行完，不会进入内部。
+  - step into： 遇到函数进入，若当前执行的是一个函数，则会进入这个函数内部。
+  - step out： 跳出函数，当单步执行到子函数内部时，用step out可以执行完子函数剩余部分并返回到上一层函数。
+
