@@ -7,6 +7,7 @@ categories: Algorithms
 
 Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.
 
+<!--more-->
 ### Input Specification:
 
 Each input file contains one test case. For each case, the first line contains a positive number *N* (≤100), the number of test locations. Then *N* ranklists follow, each starts with a line containing a positive integer *K* (≤300), the number of testees, and then *K* lines containing the registration number (a 13-digit number) and the total score of each testee. All the numbers in a line are separated by a space.
@@ -135,50 +136,58 @@ The locations are numbered from 1 to *N*. The output must be sorted in nondecrea
   }
   ```
 
-- [x] 02
 
-- 利用vector
+- [x]  02
 
-- 先按照考场内排名，赋值给总数组fin，然后总排名，最后输出。
+
+- 利用vector储存数据。先在考场内排名，将某地区排名完成的结构体local[j]赋给总体结构体数组total，然后进行总排名，最后输出。注意输入数据对准考证号位数的要求，不加013最后一个用例会挂掉…
 
   ```cpp
-  #include <cstdio>
+  #include <iostream>
   #include <algorithm>
   #include <vector>
   using namespace std;
-  struct student {
+  struct Stu{
+      int local_rank, totoal_rank, score, location_num;
       long long int id;
-      int score, finrank, local, localrank;
   };
-  bool cmp1(student a, student b) {
+  bool cmp(Stu a, Stu b)
+  {
       return a.score != b.score ? a.score > b.score : a.id < b.id;
   }
-  int main() {
+  int main()
+  {
       int n, m;
       scanf("%d", &n);
-      vector<student> fin;
-      for(int i = 1; i <= n; i++) {
+      vector<Stu> total;
+      for(int i = 1; i <= n; ++i)
+      {
           scanf("%d", &m);
-          vector<student> v(m);
-          for(int j = 0; j < m; j++) {
-              scanf("%lld %d", &v[j].id, &v[j].score);
-              v[j].local = i;
+          vector<Stu> local(m);
+          for(int j = 0; j < m; ++j)
+          {
+              scanf("%lld %d", &local[j].id, &local[j].score);
+              local[j].location_num = i;
           }
-          sort(v.begin(), v.end(), cmp1);
-          v[0].localrank = 1;
-          fin.push_back(v[0]);
-          for(int j = 1; j < m; j++) {
-              v[j].localrank = (v[j].score == v[j - 1].score) ? (v[j - 1].localrank) : (j + 1);
-              fin.push_back(v[j]);
+          sort(local.begin(), local.end(), cmp);
+          local[0].local_rank = 1;
+          total.push_back(local[0]);
+          for(int j = 1; j < m; j++)
+          {
+              local[j].local_rank = (local[j].score == local[j - 1].score) ? (local[j - 1].local_rank) : (j + 1);
+              total.push_back(local[j]);
           }
       }
-      sort(fin.begin(), fin.end(), cmp1);
-      fin[0].finrank = 1;
-      for(int j = 1; j < fin.size(); j++)
-          fin[j].finrank = (fin[j].score == fin[j - 1].score) ? (fin[j - 1].finrank) : (j + 1);
-      printf("%ld\n", fin.size());
-      for(int i = 0; i < fin.size(); i++)
-          printf("%013lld %d %d %d\n", fin[i].id, fin[i].finrank, fin[i].local, fin[i].localrank);
+      sort(total.begin(), total.end(), cmp);
+      total[0].totoal_rank = 1;
+      for(int j = 1; j < total.size(); j++)
+          total[j].totoal_rank = (total[j].score == total[j - 1].score) ? (total[j - 1].totoal_rank) : (j + 1);
+      printf("%ld\n", total.size());
+      for(int i = 0; i < total.size(); i++)
+      // K lines containing the registration number (a 13-digit number)
+          printf("%013lld %d %d %d\n", total[i].id, total[i].totoal_rank, total[i].location_num, total[i].local_rank);
       return 0;
   }
   ```
+
+
