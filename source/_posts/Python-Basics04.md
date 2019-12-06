@@ -1,4 +1,5 @@
 ---
+date: 2019-11-07
 title: Python Function
 categories: Python
 ---

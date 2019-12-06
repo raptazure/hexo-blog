@@ -1,4 +1,5 @@
 ---
+date: 2019-11-08
 title: Python OOP
 categories: Python
 ---

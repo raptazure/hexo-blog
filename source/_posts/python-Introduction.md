@@ -1,4 +1,5 @@
 ---
+date: 2019-11-04
 title: Python Introduction
 categories: Python
 

@@ -1,4 +1,5 @@
 ---
+date: 2019-11-05
 title: Python Sequence
 categories: Python
 ---

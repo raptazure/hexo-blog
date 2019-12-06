@@ -1,4 +1,5 @@
 ---
+date: 2019-11-09
 title: Python Exception
 categories: Python
 ---
