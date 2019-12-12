@@ -1,12 +1,12 @@
 ---
-title: PAT B
+title: PAT
 categories: Algorithms
-
+date: 2019-11-04
 ---
 
 # 字符串处理
 
-## 1002 写出这个数
+## B1002 写出这个数
 
 读入一个正整数 *n*，计算其各位数字之和，用汉语拼音写出和的每一位数字。
 
@@ -57,7 +57,7 @@ int main()
     return 0;
 }
 ```
-## 1003 我要通过！-  数学题
+## B1003 我要通过！-  数学题
 
 “**答案正确**”是自动判题系统给出的最令人欢喜的回复。本题属于 PAT 的“**答案正确**”大派送 —— 只要读入的字符串满足下列条件，系统就输出“**答案正确**”，否则输出“**答案错误**”。
 
@@ -143,7 +143,7 @@ int main()
 }
 ```
 
-## 1006 换个格式输出整数
+## B1006 换个格式输出整数
 
 让我们用字母 `B` 来表示“百”、字母 `S` 表示“十”，用 `12...n` 来表示不为零的个位数字 `n`（<10），换个格式来输出任一个不超过 3 位的正整数。例如 `234` 应该被输出为 `BBSSS1234`，因为它有 2 个“百”、3 个“十”、以及个位的 4。
 
@@ -204,7 +204,7 @@ int main()
 }
 ```
 
-## 1009 说反话
+## B1009 说反话
 
 给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。
 
@@ -309,7 +309,7 @@ int main()
 }
 ```
 
-## 1014 福尔摩斯的约会
+## B1014 福尔摩斯的约会
 
 大侦探福尔摩斯接到一张奇怪的字条：`我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&hgsfdk d&Hyscvnm`。大侦探很快就明白了，字条上奇怪的乱码实际上就是约会的时间`星期四 14:04`，因为前面两字符串中第 1 对相同的大写英文字母（大小写有区分）是第 4 个字母 `D`，代表星期四；第 2 对相同的字符是 `E` ，那是第 5 个英文字母，代表一天里的第 14 个钟头（于是一天的 0 点到 23 点由数字 0 到 9、以及大写字母 `A` 到 `N` 表示）；后面两字符串第 1 对相同的英文字母 `s` 出现在第 4 个位置（从 0 开始计数）上，代表第 4 分钟。现给定两对字符串，请帮助福尔摩斯解码得到约会的时间。
 
@@ -384,7 +384,7 @@ int main()
 
 # 模拟
 
-## 1001 害死人不偿命的(3n+1)猜想 
+## B1001 害死人不偿命的(3n+1)猜想 
 
 卡拉兹(Callatz)猜想：
 
@@ -435,7 +435,7 @@ int main()
     return 0;
 }
 ```
-## 1008 数组元素循环右移问题
+## B1008 数组元素循环右移问题
 
 一个数组*A*中存有*N*（>0）个整数，在不允许使用另外数组的前提下，将每个整数循环向右移*M*（≥0）个位置，即将*A*中的数据由（*A*[0]*A*[1]⋯*A[N−1]）变换为（*A[N−*M]⋯*A[N−1]A[0]A[1]⋯A[N−M−1]）（最后*M*个数循环移至最前面的*M*个位置）。如果需要考虑程序移动数据的次数尽量少，要如何设计移动的方法？
 
@@ -521,7 +521,7 @@ int main()
 }
 ```
 
-## 1010 一元多项式求导
+## B1010 一元多项式求导
 
 设计函数求一元多项式的导数。（注：*x**n*（*n*为整数）的一阶导数为*n**x**n*−1。）
 
@@ -570,7 +570,7 @@ int main()
 }
 ```
 
-## 1011 A+B和C
+## B1011 A+B和C
 
 给定区间 [−231,231] 内的 3 个整数 *A*、*B* 和 *C*，请判断 *A*+*B* 是否大于 *C*。
 
@@ -623,7 +623,7 @@ int main()
 }
 ```
 
-## 1012 数字分类
+## B1012 数字分类
 
 给定一系列正整数，请按要求对数字进行分类，并输出以下 5 个数字：
 
@@ -803,7 +803,194 @@ int main()
 
 # 排序
 
-## 1015 德才论
+## A1025 PAT Ranking
+
+Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.
+
+<!--more-->
+### Input Specification:
+
+Each input file contains one test case. For each case, the first line contains a positive number *N* (≤100), the number of test locations. Then *N* ranklists follow, each starts with a line containing a positive integer *K* (≤300), the number of testees, and then *K* lines containing the registration number (a 13-digit number) and the total score of each testee. All the numbers in a line are separated by a space.
+
+### Output Specification:
+
+For each test case, first print in one line the total number of testees. Then print the final ranklist in the following format:
+
+```
+registration_number final_rank location_number local_rank
+```
+
+The locations are numbered from 1 to *N*. The output must be sorted in nondecreasing order of the final ranks. The testees with the same score must have the same rank, and the output must be sorted in nondecreasing order of their registration numbers.
+
+### Sample Input:
+
+```in
+2
+5
+1234567890001 95
+1234567890005 100
+1234567890003 95
+1234567890002 77
+1234567890004 85
+4
+1234567890013 65
+1234567890011 25
+1234567890014 100
+1234567890012 85
+```
+
+### Sample Output:
+
+```out
+9
+1234567890005 1 1 1
+1234567890014 1 2 1
+1234567890001 3 1 2
+1234567890003 3 1 2
+1234567890004 5 1 4
+1234567890012 5 2 2
+1234567890002 7 1 5
+1234567890013 8 2 3
+1234567890011 9 2 4
+```
+
+### Solution:
+
+- [x]  01
+
+
+- 在结构体中存放准考证号，分数，考场号以及考场内排名
+
+- cmp: 分数从大到小，分数相同准考证号从小到大
+
+- 步骤：
+
+  - 按考场读入各考生信息，并对当前读入考场所有考生排序，之后将该考场所有考生排名写入结构体
+
+  - 对所有考生排序
+
+  - 按顺序一边计算总排名一边输出所有考生信息
+  
+- 注意：
+
+  
+  - 对同一考场考生单独排序：int num存放当前获取的考生数，每读入一个考生的信息就num++，这样读完一个考场的考生信息后，这个考场的考生对应的数组下标便为[num - k, num]。
+  - 相同的分数情况下按照学号的从小到大排列，但是他们的排名应该是一样的数字。
+  
+  ```cpp
+  #include <cstdio>
+  #include <cstring>
+  #include <algorithm>
+  using namespace std;
+  struct Student{
+      char id[15];
+      int score;
+      int location_num;
+      int local_rank;
+  }stu[30010];
+  bool cmp(Student a, Student b)
+  {
+      if(a.score != b.score) return a.score > b.score;
+      else return strcmp(a.id, b.id) < 0;
+  }
+  int main()
+  {
+      //num - total testees, n - locations
+      int n, k, num = 0;
+      scanf("%d", &n);
+      for(int i = 1; i <= n; i++)
+      {
+          //k - local testees
+          scanf("%d", &k);
+          for(int j = 0; j < k; j++)
+          {
+              scanf("%s %d", stu[num].id, &stu[num].score);
+              //this testee's location number is i
+              stu[num].location_num = i;
+              //total_testees ++
+              num++;
+          }
+          //sort testees of current location
+          sort(stu + num - k, stu + num, cmp);
+          //mark 1st of current location
+          stu[num - k].local_rank = 1;
+          //mark the others' rank
+          for(int j = num - k + 1; j < num; j++)
+          {
+              if(stu[j].score == stu[j - 1].score)
+                  stu[j].local_rank = stu[j - 1].local_rank;
+              else stu[j].local_rank = j + 1 - (num - k);
+          }
+      }
+      printf("%d\n", num);
+      sort(stu, stu + num, cmp);
+      int r = 1;
+      for(int i = 0; i < num; i++)
+      {
+          if(i > 0 && stu[i].score != stu[i - 1].score)
+              r = i + 1;
+          printf("%s ",stu[i].id);
+          printf("%d %d %d\n", r, stu[i].location_num, stu[i].local_rank);
+      }
+      return 0;
+  }
+  ```
+
+
+- [x]  02
+
+
+- 利用vector储存数据。先在考场内排名，将某地区排名完成的结构体local[j]赋给总体结构体数组total，然后进行总排名，最后输出。注意输入数据对准考证号位数的要求，不加013最后一个用例会挂掉…
+
+  ```cpp
+  #include <iostream>
+  #include <algorithm>
+  #include <vector>
+  using namespace std;
+  struct Stu{
+      int local_rank, totoal_rank, score, location_num;
+      long long int id;
+  };
+  bool cmp(Stu a, Stu b)
+  {
+      return a.score != b.score ? a.score > b.score : a.id < b.id;
+  }
+  int main()
+  {
+      int n, m;
+      scanf("%d", &n);
+      vector<Stu> total;
+      for(int i = 1; i <= n; ++i)
+      {
+          scanf("%d", &m);
+          vector<Stu> local(m);
+          for(int j = 0; j < m; ++j)
+          {
+              scanf("%lld %d", &local[j].id, &local[j].score);
+              local[j].location_num = i;
+          }
+          sort(local.begin(), local.end(), cmp);
+          local[0].local_rank = 1;
+          total.push_back(local[0]);
+          for(int j = 1; j < m; j++)
+          {
+              local[j].local_rank = (local[j].score == local[j - 1].score) ? (local[j - 1].local_rank) : (j + 1);
+              total.push_back(local[j]);
+          }
+      }
+      sort(total.begin(), total.end(), cmp);
+      total[0].totoal_rank = 1;
+      for(int j = 1; j < total.size(); j++)
+          total[j].totoal_rank = (total[j].score == total[j - 1].score) ? (total[j - 1].totoal_rank) : (j + 1);
+      printf("%ld\n", total.size());
+      for(int i = 0; i < total.size(); i++)
+      // K lines containing the registration number (a 13-digit number)
+          printf("%013lld %d %d %d\n", total[i].id, total[i].totoal_rank, total[i].location_num, total[i].local_rank);
+      return 0;
+  }
+  ```
+
+## B1015 德才论
 
 宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”
 
@@ -973,7 +1160,7 @@ int main(){
 
 # 查找元素
 
-## 1004 成绩排名
+## B1004 成绩排名
 
 读入 *n*（>0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。
 
@@ -1046,7 +1233,7 @@ int main()
 ```
 # Hash
 
-## 1005 **继续(3n+1)猜想** 
+## B1005 **继续(3n+1)猜想** 
 
 卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。
 
@@ -1164,7 +1351,7 @@ int main()
 
 # 素数
 
-  ## 1007 素数对猜想
+  ## B1007 素数对猜想
 
 让我们定义d[n]为：d[n]=p[n+1]−p[n]，其中*p[i]*是第*i*个素数。显然有*d*[1]=1，且对于*n*>1有*d[n]*是偶数。“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。
 
@@ -1214,7 +1401,7 @@ int main()
 }
 ```
 
-## 1013  数素数
+## B1013  数素数
 
 令 P[i]表示第 *i* 个素数。现任给两个正整数 *M*≤*N*≤104，请输出 *P[M]* 到 *P[N]* 的所有素数。
 
