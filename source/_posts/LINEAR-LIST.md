@@ -194,7 +194,6 @@ categories: Data Structures
 
   - l[N]储存每个点左边的点，r[N]储存右边的点。
 
-    ![](https://github.com/Raptazure/Algorithms-AcWing/blob/master/notes/images/Screenshot_20191127_170044.png?raw=true)
 
 ```cpp
   #include <iostream>
