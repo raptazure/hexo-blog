@@ -1,2 +1,2 @@
-**my blog based on hexo and github-pages**
-*[A warm welcome from raptazure~]*
+**My blog based on hexo and github-pages**
+<br>*[A warm welcome from raptazure~]*
