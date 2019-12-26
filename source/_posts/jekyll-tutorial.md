@@ -1,8 +1,7 @@
 ---
 title: Jekyll教程->>滑稽预警
 author: Raptazure
-tags:
-	感悟
+tags: 感悟
 ---
 
 ​                                                                                                     *— Notes by Raptazure*
