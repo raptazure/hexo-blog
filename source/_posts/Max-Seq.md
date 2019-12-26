@@ -1,6 +1,6 @@
 ---
 date: 2019-11-05
-title: 最大子列和问题
+title: Max Subsequnce Sum
 categories: Algorithms
 mathjax: true
 ---
@@ -13,20 +13,17 @@ mathjax: true
 1.最暴力：把所有连续子列和都算出来，从中找最大的那个。
 
 ```cpp
-int MaxSubseqSum1 (int a[], int N)
-{
+int MaxSubseqSum1 (int a[], int N) {
     int ThisSum,Maxsum=0;
     int i,j,k;
     //i为子列左端位置，j为子列右端位置，ThisSum为A[i]到A[j]子列和
-    for ( i = 0; i < N; i++)
-    {
-        for ( j = i; j < N; j++)
-        {
-            ThisSum=0;
+    for ( i = 0; i < N; i++) {
+        for ( j = i; j < N; j++) {
+            ThisSum = 0;
             for ( k = 0; k <= j; k++)
-                ThisSum+=a[k];
-            if (ThisSum>Maxsum)
-                Maxsum=ThisSum;
+                ThisSum += a[k];
+            if (ThisSum > Maxsum)
+                Maxsum = ThisSum;
         }
     }
     return Maxsum;
@@ -38,19 +35,16 @@ int MaxSubseqSum1 (int a[], int N)
 2.省略k循环：
 
 ```cpp
-int MaxSubseqSum2 (int a[], int N)
-{
-    int ThisSum,Maxsum=0;
-    int i,j;
-    for ( i = 0; i < N; i++)
-    {
+int MaxSubseqSum2 (int a[], int N) {
+    int ThisSum, Maxsum = 0;
+    int i, j;
+    for ( i = 0; i < N; i++) {
         ThisSum = 0;
-        for ( j = i; j < N; j++)
-        {
+        for ( j = i; j < N; j++) {
             //对于相同的i，不同的j，在j-1次循环基础累加1即可
-            ThisSum+=a[j];
-            if (ThisSum>Maxsum)
-               Maxsum=ThisSum;
+            ThisSum += a[j];
+            if (ThisSum > Maxsum)
+               Maxsum = ThisSum;
         }
     }
     return Maxsum;
