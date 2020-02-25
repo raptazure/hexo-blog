@@ -1,18 +1,16 @@
 ---
 title: 如何高效优雅地为Arch Linux瘦身?
 categories: Linux
+date: 2019-10-18
 ---
 
-
-
-​		虽然Linux本身的体积比Windows 10小很多，但是使用Manjaro的这段时间里，感觉产生的日常垃圾也不少。由于喜欢大空间带来的自由的感觉，必然就要进行瘦身啦！
+​ 虽然 Linux 本身的体积比 Windows 10 小很多，但是使用 Manjaro 的这段时间里，感觉产生的日常垃圾也不少。由于喜欢大空间带来的自由的感觉，必然就要进行瘦身啦！
 
 <!-- more -->
 
 - #### 清理安装包缓存
 
   删除未安装 & 已安装 & 旧版本的包文件缓存
-
 
 ```shell
 sudo pacman -Scc
@@ -29,4 +27,3 @@ sudo pacman -Rns $(pacman -Qtdq)
 ```shell
 sudo journalctl --vacuum-size=30M
 ```
-

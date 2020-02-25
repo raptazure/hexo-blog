@@ -2,10 +2,8 @@
 title: Binary Search
 author: Raptazure
 categories: Algorithms
-
+date: 2019-11-18
 ---
-
-
 
 ## 1.二分模板
 
@@ -18,7 +16,7 @@ int bsearch_1(int l, int r)
     while (l < r)
     {
         int mid = (l + r) / 2;
-        if(check(mid)) r = mid; 
+        if(check(mid)) r = mid;
         //check()判断mid是否满足性质
         else l = mid + 1;
     }
@@ -49,7 +47,7 @@ int main()
 {
     double x;
     cin >> x;
-    
+
     double l = 0, r = x;
     /* 不用精度判断而是直接迭代100次
     for (int i = 0; i < 100; i++)
@@ -72,8 +70,8 @@ int main()
 
 ## 2.伪码描述
 
-​	 给定N个从小到大**排好序**的整数序列List[]，以及某待查找整数X，我们的目标是找到X在List中的下标。即若有List[i]=X，则返回i；否则返回-1表示没有找到。
-​    二分法是先找到序列的中点List[M]，与X进行比较，若相等则返回中点下标；否则，若List[M]>X，则在左边的子系列中查找X；若List[M]<X，则在右边的子系列中查找X。
+​ 给定 N 个从小到大**排好序**的整数序列 List[]，以及某待查找整数 X，我们的目标是找到 X 在 List 中的下标。即若有 List[i]=X，则返回 i；否则返回-1 表示没有找到。
+​ 二分法是先找到序列的中点 List[M]，与 X 进行比较，若相等则返回中点下标；否则，若 List[M]>X，则在左边的子系列中查找 X；若 List[M]<X，则在右边的子系列中查找 X。
 
 ```
 {
@@ -155,7 +153,7 @@ int BinarySearch(int a[],int x,int n)
 #include<iostream>
 
 using namespace std;
- 
+
  const int N = 1e6 + 10;
 
  int n, m;
@@ -205,7 +203,7 @@ int main()
     double n;
     int flag = 0;
     cin >> n;
-    if(n <= 0) 
+    if(n <= 0)
     {
         flag = 1;
         n = -n;
@@ -222,4 +220,3 @@ int main()
     return 0;
 }
 ```
-

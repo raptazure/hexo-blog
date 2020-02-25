@@ -2,13 +2,14 @@
 title: 高精度加法模板及应用
 categories: Algorithms
 tags: LeetCode
+date: 2019-12-15
 ---
 
 ### 引入
 
 - 高精度加法通过对数位分别储存运算，并维护一个用于处理进位的变量，从而在不造成溢出的前提下实现大数相加。
-- Java和Python中虽然不需要考虑大整数相加的溢出问题，但这种算法的思想很值得借鉴。
-- 这种思想在很多问题上都可以应用，这里选取LC的几道题目进行分析
+- Java 和 Python 中虽然不需要考虑大整数相加的溢出问题，但这种算法的思想很值得借鉴。
+- 这种思想在很多问题上都可以应用，这里选取 LC 的几道题目进行分析
 
 <!--more-->
 
@@ -20,7 +21,7 @@ tags: LeetCode
 
 using namespace std;
 // 加引用避免再拷贝整个数组
-vector<int> add(vector<int> &A, vector<int> &B) 
+vector<int> add(vector<int> &A, vector<int> &B)
 {
     // 定义储存结果的vector以及进位t，第0位没有进位->初始化为0
     vector<int> C;
@@ -58,15 +59,19 @@ int main()
 
 // 个位放在索引0的位置：出现进位的情况时需要在高位补上1,这样在数组后端补数比较容易
 ```
+
 ### 应用：
+
 ##### LC066 [Plus One](https://leetcode.com/problems/plus-one/)
-- 实际就是只考虑+1特殊情况的简化版
+
+- 实际就是只考虑+1 特殊情况的简化版
 - 逆序遍历`digits`数组，每次循环将`digits`的元素加到`t`上
-- 仅当第一次遍历（个位）时使`t`额外加1
+- 仅当第一次遍历（个位）时使`t`额外加 1
 - 将当前位结果`t%10`存到答案`res`里
 - 用`t/10`表示进位并进入下一次循环
-- 遍历后，如果最高位仍有进位则补1
+- 遍历后，如果最高位仍有进位则补 1
 - 翻转数组得到答案
+
 ```cpp
 class Solution {
 public:
@@ -85,10 +90,13 @@ public:
     }
 };
 ```
+
 ##### LC002 [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+
 - 这里其实就是采用链表储存数位，和使用数组一样，要注意访问元素的顺序。
-- 注意到题中描述`The digits are stored in reverse order`，因此对于用例`[2->4->3] + [5->6->4]`，实际就是竖式计算`342+465`,这里个位已经位于等价于索引0的位置。
+- 注意到题中描述`The digits are stored in reverse order`，因此对于用例`[2->4->3] + [5->6->4]`，实际就是竖式计算`342+465`,这里个位已经位于等价于索引 0 的位置。
 - 除了大数模板的应用外，还要注意一些链表中的常用技巧，比如可以设置`dummy`虚拟头节点用于新链表的构建。
+
 ```cpp
 class Solution {
 public:
@@ -113,11 +121,14 @@ public:
     }
 };
 ```
+
 ##### LC445 [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
+
 - 注意题目描述`The most significant digit comes first`
 - 如果不考虑`Follow up`，这道题链表反转后就和上面那道思路差不多了
 - 链表反转可以通过迭代或者递归两种方法实现，这里采用双指针的迭代写法
 - 完成加法后链表相对最后结果还是逆序的，需要再次反转
+
 ```cpp
 class Solution {
 public:
@@ -156,11 +167,14 @@ public:
     }
 };
 ```
+
 ##### LC067 [Add Binary](https://leetcode.com/problems/add-binary/comments/)
+
 - 二进制加法和十进制方法差不多，只是处理进位时改为`t % 2 和 t /= 2`
 - 通过`s[i] - '0'`将字符串中的字符依次转换为整形储存到动态数组里
 - 类似于模板中的倒序输出，加法完成后需要反转答案数组`res`
 - 使用`i + '0'`将答案数组转为字符串并返回该字符串
+
 ```cpp
 class Solution {
 public:
@@ -184,4 +198,3 @@ public:
     }
 };
 ```
-
