@@ -2,7 +2,7 @@
 title: Binary Search
 author: Raptazure
 categories: Algorithms
-date: 2019-11-18
+date: 2019-10-27
 ---
 
 ## 1.二分模板

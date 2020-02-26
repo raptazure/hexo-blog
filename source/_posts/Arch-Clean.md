@@ -1,6 +1,6 @@
 ---
 title: 如何高效优雅地为Arch Linux瘦身?
-categories: Linux
+tags: linux
 date: 2019-10-18
 ---
 

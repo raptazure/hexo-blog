@@ -1,8 +1,14 @@
 ---
 title: Vim基本命令
-categories: Linux
+categories: Tools
+tags: linux
 date: 2019-11-12
 ---
+
+<img src="Vim/vim_main.png">
+$\quad$主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容
+
+<!-- more-->
 
 #### 进入普通模式：
 
@@ -18,8 +24,6 @@ date: 2019-11-12
 ```
 
 - 实现按两次 j 键进入普通模式。
-
-  <!-- more-->
 
 #### 插入模式：
 
@@ -153,7 +157,7 @@ date: 2019-11-12
 
   text object - w(word) s(sentence) p(paragragh)
 
-  ![](Vim/Screenshot_20191027_093305.png)
+  <img src="Vim/Screenshot_20191027_093305.png">
 
 <img src="Vim/Screenshot_20191027_094013.png" style="zoom: 67%;" />
 
