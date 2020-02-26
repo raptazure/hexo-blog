@@ -3,6 +3,7 @@ title: Vim基本命令
 categories: Tools
 tags: linux
 date: 2019-11-12
+mathjax: true
 ---
 
 <img src="Vim/vim_main.png">

@@ -6,7 +6,7 @@ tags: git
 ---
 
 <img src="hexo-sync/hexo-page.png" width="900px">
-$\quad$因为最近发现WSL2可以基本满足对Linux的需求，再加上学校有各种各样的任务，不知不觉产生了迁回Windows10的倾向，然而，以前的博客都在Manjaro Linux上，如何节省宝贵的时间，直接在Windows上沿用先前的配置而不用重新配置呢？这就需要利用GitHub进行多端同步了。
+&#160;&#160;&#160;&#160;&#160;&#160;因为最近发现WSL2可以基本满足对Linux的需求，再加上学校有各种各样的任务，不知不觉产生了迁回Windows10的倾向，然而，以前的博客都在Manjaro Linux上，如何节省宝贵的时间，直接在Windows上沿用先前的配置而不用重新配置呢？这就需要利用GitHub进行多端同步了。
 <!--more-->
 ## 在 Linux 上的设置（初始端）
 
