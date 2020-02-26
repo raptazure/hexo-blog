@@ -124,17 +124,17 @@ scheme: Pisces
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/Raptazure || github
-  Google: https://plus.google.com/Raptazure || google
+  GitHub: https://github.com/raptazure || github
+  E-Mail: mailto:raptazure@163.com || envelope
+  #Google: https://plus.google.com/Raptazure || google
   #bilibili: https://space.bilibili.com/35829586 ||
   Twitter: https://twitter.com/raptazure?s=09 || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
   #VK Group: https://vk.com/yourname || vk
   Stack: https://stackoverflow.com/users/12039166/raptazure || stack-overflow
-  #YouTube: https://youtube.com/Raptazure || youtube
+  YouTube: https://www.youtube.com/channel/UCRxN6c679jb5ZNBfBP8S4Tw/playlists?view_as=public || youtube
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
-  E-Mail: 1051276278@qq.com || envelope
   Music: https://music.163.com/#/user/home?id=451103394 || music
 social_icons:
   enable: true

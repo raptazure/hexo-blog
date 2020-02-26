@@ -5,7 +5,7 @@ categories: Tools
 tags: linux
 ---
 
-  <img src="manjaro-i3/Screenshot_20191110_223819.png" style="margin: 0 auto;">
+  <img src="manjaro-i3/Screenshot_20191110_223819.jpg" style="margin: 0 auto;">
 
 &#160;&#160;&#160;&#160;&#160;&#160;用 manjaro KDE 也有一段时间了，在感受 Plasma 各种便捷美观的同时，也在不断探索更轻量高效的桌面环境，直到在 TheCW 的视频里发现了 i3wm ～
 
