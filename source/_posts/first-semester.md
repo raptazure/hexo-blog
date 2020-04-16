@@ -3,52 +3,60 @@ title: 记大一上
 date: 2020-04-12 16:07:42
 tags: 感悟
 ---
+
 <img src="first-semester/intro.jpg" width="900px">
 
-$\quad$因为年级要求学生互评，需要制作一份2-3分钟的PPT展示自己大一上学期的成长与收获，感悟与体会，存在的缺点不足以及未来的规划打算（这不是公开处刑嘛(#`O′)，既然写完了，就发布到博客好了，也当作自己对前一阶段的小总结吧。
+$\quad$因为年级要求学生互评，需要制作一份 2-3 分钟的 PPT 展示自己大一上学期的成长与收获，感悟与体会，存在的缺点不足以及未来的规划打算（这不是公开处刑嘛(#`O′)，既然写完了，就发布到博客好了，也当作自己对前一阶段的小总结吧。
 
 <!--more-->
 
-$\quad$虽说让做PPT，但是理论上任何slideshow都可以满足这一需求，作为markdown的重度爱好者（不是），去GitHub上逛了一圈选定了remark，这样也便于移植啦！
+$\quad$虽说让做 PPT，但是理论上任何 slideshow 都可以满足这一需求，作为 markdown 的重度爱好者（不是），去 GitHub 上逛了一圈选定了 remark，这样也便于移植啦！
 
 - 话不多说，还是直接贴源码方便= =
 
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>我的大一上</title>
+    <meta charset="utf-8" />
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone + Kaffeesatz);
+      @import url(
+        https://fonts.googleapis.com/css?family=Droid + Serif:400,
+        700,
+        400italic
+      );
+      @import url(
+        https://fonts.googleapis.com/css?family=Ubuntu + Mono:400,
+        700,
+        400italic
+      );
 
-<head>
-  <title>我的大一上</title>
-  <meta charset="utf-8">
-  <style>
-    @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-    @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-    @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body {
+        font-family: "Droid Serif";
+      }
 
-    body {
-      font-family: 'Droid Serif';
-    }
+      h1,
+      h2,
+      h3 {
+        font-family: "Yanone Kaffeesatz";
+        font-weight: normal;
+      }
 
-    h1,
-    h2,
-    h3 {
-      font-family: 'Yanone Kaffeesatz';
-      font-weight: normal;
-    }
+      .remark-code,
+      .remark-inline-code {
+        font-family: "Ubuntu Mono";
+      }
 
-    .remark-code,
-    .remark-inline-code {
-      font-family: 'Ubuntu Mono';
-    }
+      .down {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
 
-    .down {
-      margin-top: 50px;
-    }
-  </style>
-</head>
-
-<body>
-  <textarea id="source">
+  <body>
+    <textarea id="source">
 
 class: center, middle
 
@@ -109,26 +117,26 @@ class: center, middle
 
 ### 基础课学习（数学）
 
-- 这块做的自认为很不好，没有及时复习，最后考试周突击，导致考试课们的绩点也比较惨= =
-- 所以自己以后也要加强对基础课的学习，特别是数学！！毕竟打好数学基础很重要呀，这点很需要改正，会更努力的！
+- 这块做的自认为很不好，没有及时复习，最后考试周突击，导致某些考试课的绩点比较惨= =
+- 所以自己以后也要加强对基础课的学习，特别是数学（就目前大一来说），当然专业基础课肯定更要好好学啦！
 --
 
 - 哦对了，体育好像也算基础课，还要多多运动！
 --
 
-- 所以这还关联到一个时间管理和分配的事情，这块自己做的也不是很好，常常由着自己的性子来，有种想做的事情才去做的感觉= =，以后大概要注意一下了（未来当然也希望能培养起兴趣啊啊啊）
+- 所以这还关联到一个时间管理和分配的事情，这块自己做的也不是很好，常常由着自己的性子来，有种想做的事情才去做的感觉= =，以后大概要注意一下了
 
 ---
 
 ### 未来要做的事情
 
-- 专业方面，首先要把实验室前端的工作做好吧，这也是一份责任，当然也是兴趣，所以要把前端学精一些，然后慢慢向后端扩展（指Nest.js)
+- 专业方面，首先要把实验室前端的工作做好吧，这也是一份责任，当然也是兴趣，所以要把前端学精一些，然后慢慢向后端扩展（Express.js, Nest.js)
 --
 
 - 基础课方面，前面也说过了，要合理分配时间，多多努力才行呀 
 --
 
-- 学习之外的话，希望能多交一些知心的朋友(￣▽￣)""，虽然这对于有时外冷内热且兴趣古怪的我并不是很容易哈...也希望能坚持自己的兴趣，比如练琴和神秘学（玄学）等等
+- 然后，希望能多交一些知心的朋友(￣▽￣)""...也希望能坚持自己的兴趣，比如练琴和神秘学（玄学）等等
 --
 
 - 然后就是...希望今年也能和大家一起开心的写代码！
@@ -142,17 +150,13 @@ class: center, middle
 
 
     </textarea>
-  <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-  </script>
-  <script>
-    var slideshow = remark.create();
-  </script>
-</body>
-
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
 </html>
 ```
 
-
 - 喵~其实还有很多其他的事情没有写上去（嘿嘿）
 - 总之加油加油啦！
-
