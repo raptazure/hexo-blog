@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|monospace:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="函数基本概念： 函数代表一个任务或者一个功能，函数是代码复用的通用机制。  函数分类：内置函数，标准库函数，第三方库函数，用户自定义函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Function">
+<meta property="og:url" content="https://raptazure.github.io/2019/11/07/Python-Basics04/index.html">
+<meta property="og:site_name" content="Raptazure&#39;s Blog">
+<meta property="og:description" content="函数基本概念： 函数代表一个任务或者一个功能，函数是代码复用的通用机制。  函数分类：内置函数，标准库函数，第三方库函数，用户自定义函数。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-13T00:55:35.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Function">
+<meta name="twitter:description" content="函数基本概念： 函数代表一个任务或者一个功能，函数是代码复用的通用机制。  函数分类：内置函数，标准库函数，第三方库函数，用户自定义函数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://raptazure.github.io/2019/11/07/Python-Basics04/">
+
+
+
+
+
+  <title>Python Function | Raptazure's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Raptazure" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Raptazure's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://raptazure.github.io/2019/11/07/Python-Basics04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Raptazure">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/w.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Raptazure's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python Function</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-07T00:00:00+08:00">
+                2019-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/07/Python-Basics04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/07/Python-Basics04/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h2><ul>
+<li><p>函数代表一个任务或者一个功能，函数是代码复用的通用机制。</p>
+</li>
+<li><p>函数分类：内置函数，标准库函数，第三方库函数，用户自定义函数。</p>
+<a id="more"></a>
+</li>
+</ul>
+<h2 id="函数定义和调用："><a href="#函数定义和调用：" class="headerlink" title="函数定义和调用："></a>函数定义和调用：</h2><ul>
+<li><p>Python执行def会创建一个新的函数对象(对象在堆里)，并绑定到函数名变量(在栈里)上 -&gt; 把对象地址给变量，可通过函数名变量找到对象。</p>
+</li>
+<li><p>圆括号内是形式参数表，有多个参数时应用<code>，</code>隔开。形参不需要声明变量类型，也不需要指定函数返回值类型，实参列表要与形参对应。</p>
+</li>
+<li><p>return 返回值，不含return则返回None，要返回多个值可用序列存储。</p>
+</li>
+<li><p>调用函数前必须先定义函数(用def创建函数对象)：</p>
+<ul>
+<li>内置函数对象会自动创建</li>
+<li>标准库和第三方库函数，通过import导入模块时，会执行模块中的def语句。5</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"$"</span> * <span class="number">8</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    my_func()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMax</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="string">'''compare two numbers and give the bigger one'''</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        print(a,<span class="string">"is bigger"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(b,<span class="string">"is bigger"</span>)</span><br><span class="line">    </span><br><span class="line">printMax(<span class="number">10</span>,<span class="number">20</span>)</span><br><span class="line">printMax(<span class="number">2</span>,<span class="number">34</span>)</span><br><span class="line"><span class="comment"># 打印文档字符串</span></span><br><span class="line">help(printMax)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(x,y,z)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (x* <span class="number">10</span>, y * <span class="number">10</span>, z * <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(test(<span class="number">19</span>, <span class="number">29</span>, <span class="number">39</span>))</span><br><span class="line"><span class="comment"># (190, 290, 390)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"object"</span>)</span><br><span class="line">test()</span><br><span class="line">c = test</span><br><span class="line">c()</span><br><span class="line">print(id(test))</span><br><span class="line">print(id(c))</span><br><span class="line">print(type(c))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">object</span></span><br><span class="line"><span class="string">object</span></span><br><span class="line"><span class="string">139964785728976</span></span><br><span class="line"><span class="string">139964785728976</span></span><br><span class="line"><span class="string">&lt;class 'function'&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>全局变量：在函数和类定义之外声明的变量，作用域是定义的模块，一般做常量使用，函数内要改变全局变量的值需用global声明。</p>
+<p>局部变量：在函数体中声明的变量(包含形参)，局部变量存在栈帧里(Stack Frame)，局部变量的引用快于全局变量。若函数内局部变量与全局变量同名，则在函数内屏蔽全局变量。</p>
+<p>使用<code>print(locals())</code> <code>print(globals())</code>打印所有局部变量和全局变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试局部变量与全局变量效率</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    start = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100001</span>):</span><br><span class="line">        math.sqrt(<span class="number">30</span>)</span><br><span class="line">    end = time.time()</span><br><span class="line">    print(<span class="string">"time cost: &#123;&#125;"</span>.format(end - start))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    b = math.sqrt</span><br><span class="line">    start = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100001</span>):</span><br><span class="line">        b(<span class="number">30</span>)</span><br><span class="line">    end = time.time()</span><br><span class="line">    print(<span class="string">"time cost: &#123;&#125;"</span>.format(end - start))</span><br><span class="line">test()</span><br><span class="line">test2()</span><br><span class="line"><span class="comment"># time cost: 0.010730981826782227</span></span><br><span class="line"><span class="comment"># time cost: 0.005475521087646484</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数传递：本质是从实参到形参的赋值操作，Python中一切皆对象，所有赋值操作都是引用的赋值，所以python中的参数传递是“引用传递”而非“值传递”。具体操作分为：</p>
+<ul>
+<li><p>对可变对象(字典，列表，集合，自定义的对象等)进行“写操作”，直接作用于原对象本身。传递参数是可变对象时，实际传递的是对象的引用，在函数中不创建新的对象拷贝，而是可以直接修改所传递的对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">b = [<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">(m)</span>:</span></span><br><span class="line">    print(<span class="string">"m"</span>,id(m))</span><br><span class="line">    m.append(<span class="number">30</span>)</span><br><span class="line">f2(b)</span><br><span class="line">print(<span class="string">"b"</span>,id(b))</span><br><span class="line">print(b)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">m 140456535695920</span></span><br><span class="line"><span class="string">b 140456535695920</span></span><br><span class="line"><span class="string">[10, 20, 30]</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对不可变对象(数字，字符串，元组，布尔值，function等)进行“写操作”，会产生一个新的“对象空间”，并用新的值填充这块空间(起到其他语言的“值传递”效果但不是“值传递”)。传递对象是不可变对象时，实际传递的也是对象的引用，在“赋值”操作时，由于不可变对象无法修改，系统会创建一个新的对象拷贝，此时用的是浅拷贝。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">10000</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(n)</span>:</span></span><br><span class="line">    print(<span class="string">"n"</span>,id(n))</span><br><span class="line">    n = n + <span class="number">200</span></span><br><span class="line">    print(<span class="string">"n"</span>,id(n))</span><br><span class="line">    print(n)</span><br><span class="line">f(a)</span><br><span class="line">print(<span class="string">"a"</span>,a,id(a))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">n 140526911552880</span></span><br><span class="line"><span class="string">n 140526912199440</span></span><br><span class="line"><span class="string">10200</span></span><br><span class="line"><span class="string">a 10000 140526911552880</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">#n和a一开始是同一个对象，n值改变-&gt;新的对象</span></span><br><span class="line">a = <span class="number">10</span></span><br><span class="line">print(<span class="string">"a:"</span>,id(a))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(m)</span>:</span></span><br><span class="line">    print(<span class="string">"m:"</span>,id(m))</span><br><span class="line">    m = <span class="number">20</span></span><br><span class="line">    print(<span class="string">"m:"</span>,id(m))</span><br><span class="line">test(a)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">a: 139863371449600</span></span><br><span class="line"><span class="string">m: 139863371449600</span></span><br><span class="line"><span class="string">m: 139863371449920</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 浅拷贝</span></span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = (<span class="number">10</span>, <span class="number">20</span>, [<span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">print(<span class="string">"a:"</span>,id(a))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(m)</span>:</span></span><br><span class="line">    print(<span class="string">"m:"</span>,id(m))</span><br><span class="line">    m[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">233</span></span><br><span class="line">    print(m)</span><br><span class="line">    print(<span class="string">"m:"</span>,id(m))</span><br><span class="line">test(a)</span><br><span class="line">print(a)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">a: 140400765861072</span></span><br><span class="line"><span class="string">m: 140400765861072</span></span><br><span class="line"><span class="string">(10, 20, [233, 6])</span></span><br><span class="line"><span class="string">m: 140400765861072</span></span><br><span class="line"><span class="string">(10, 20, [233, 6])</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">#传递不可变对象时，若不可变对象里包含的子对象是可变的，在方法内修改这个可变对象时，源对象也会发生变化</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>浅拷贝和深拷贝：内置函数<code>copy</code>  <code>deepcopy</code></p>
+<ul>
+<li><p>浅拷贝：不拷贝子对象内容，只是拷贝子对象的引用。</p>
+</li>
+<li><p>深拷贝：将子对象的内存全部拷贝一份，对子对象的修改不会影响源对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="comment">#浅拷贝</span></span><br><span class="line">a = [<span class="number">10</span>, <span class="number">20</span>, [<span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line">b = copy.copy(a)</span><br><span class="line">print(<span class="string">"a"</span>,a)</span><br><span class="line">print(<span class="string">"b"</span>,b)</span><br><span class="line">b.append(<span class="number">30</span>)</span><br><span class="line">b[<span class="number">2</span>].append(<span class="number">7</span>)</span><br><span class="line">print(<span class="string">"copy..."</span>)</span><br><span class="line">print(<span class="string">"a"</span>,a)</span><br><span class="line">print(<span class="string">"b"</span>,b)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">a [10, 20, [5, 6]]</span></span><br><span class="line"><span class="string">b [10, 20, [5, 6]]</span></span><br><span class="line"><span class="string">copy...</span></span><br><span class="line"><span class="string">a [10, 20, [5, 6, 7]]</span></span><br><span class="line"><span class="string">b [10, 20, [5, 6, 7], 30]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">a = [<span class="number">10</span>, <span class="number">20</span>, [<span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line">b = copy.deepcopy(a)</span><br><span class="line">print(<span class="string">"a"</span>,a)</span><br><span class="line">print(<span class="string">"b"</span>,b)</span><br><span class="line">b.append(<span class="number">30</span>)</span><br><span class="line">b[<span class="number">2</span>].append(<span class="number">7</span>)</span><br><span class="line">print(<span class="string">"deepcopy..."</span>)</span><br><span class="line">print(<span class="string">"a"</span>,a)</span><br><span class="line">print(<span class="string">"b"</span>,b)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">a [10, 20, [5, 6]]</span></span><br><span class="line"><span class="string">b [10, 20, [5, 6]]</span></span><br><span class="line"><span class="string">deepcopy...</span></span><br><span class="line"><span class="string">a [10, 20, [5, 6]]</span></span><br><span class="line"><span class="string">b [10, 20, [5, 6, 7], 30]</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>参数的几种类型：</p>
+<ul>
+<li><p>位置参数：函数调用时实参按默认位置顺序传递，需要个数和形参匹配。按位置传递的参数是位置参数。</p>
+</li>
+<li><p>默认值参数：为某些参数设定默认值，这样这些参数在传递时就是可选的。默认值参数放在位置参数后面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, b, c = <span class="number">10</span>)</span>:</span></span><br><span class="line">    print(a, b, c)</span><br><span class="line">f(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>命名参数：按照形参的名称传递参数，也叫关键字函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, b, c)</span>:</span></span><br><span class="line">    print(a, b, c)</span><br><span class="line">f(c = <span class="number">10</span>, a = <span class="number">20</span>, b = <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>可变参数：数量可变。<code>*param</code>将多个参数收集到一个元组对象中。<code>**param</code>将多个参数收集到一个字典对象中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a, *b, **c)</span>:</span></span><br><span class="line">    print(a, b, c)</span><br><span class="line">func(<span class="number">8</span>, <span class="number">9</span>, <span class="number">233</span>, <span class="number">1</span>, name = <span class="string">'rapt'</span>, age = <span class="number">18</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">8 (9, 233, 1) &#123;'name': 'rapt', 'age': 18&#125;</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>强制命名参数：在带*的可变参数后增加新的参数，必须在调用时“强制命名参数”。否则前面的可变参数会持续收集使得后面的无法进行赋值。</li>
+</ul>
+<h2 id="lambda表达式与匿名函数："><a href="#lambda表达式与匿名函数：" class="headerlink" title="lambda表达式与匿名函数："></a>lambda表达式与匿名函数：</h2><ul>
+<li><p>lambda表达式是一种简单的，在同一行中定义函数的方法。可用来声明匿名函数，lambda函数实际生成一个函数对象。运算结果是函数返回值</p>
+<p><code>lambda arg1, arg2, arg3 … : &lt;exp&gt;</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">lambda</span> a, b, c : a + b + c</span><br><span class="line">print(f)</span><br><span class="line">print(f(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">g = [<span class="keyword">lambda</span> a : a * <span class="number">2</span>, <span class="keyword">lambda</span> b : b * <span class="number">3</span>, <span class="keyword">lambda</span> c : c * <span class="number">4</span>]</span><br><span class="line">print(g[<span class="number">0</span>](<span class="number">6</span>), g[<span class="number">1</span>](<span class="number">7</span>), g[<span class="number">2</span>](<span class="number">10</span>))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(a, b, c, d)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b + c + d</span><br><span class="line">h = [test, test] <span class="comment">#函数也是对象</span></span><br><span class="line">print(h[<span class="number">0</span>](<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">&lt;function &lt;lambda&gt; at 0x7fbf0647b050&gt;</span></span><br><span class="line"><span class="string">9</span></span><br><span class="line"><span class="string">12 21 40</span></span><br><span class="line"><span class="string">14</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="eval-函数："><a href="#eval-函数：" class="headerlink" title="eval() 函数："></a><code>eval()</code> 函数：</h2><ul>
+<li><p>功能：将字符串str当成有效的表达式来求值并返回计算结果。</p>
+</li>
+<li><p>语法：<code>eval([__source], [__globals], [__locals]) -&gt; value</code></p>
+</li>
+<li><p>参数：source - 一个Python表达式或函数compile()返回的代码对象</p>
+<p>​            globals - 可选，必须是dictionary</p>
+<p>​            locals - 可选，任意映射对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"print('rapt')"</span></span><br><span class="line">eval(s)</span><br><span class="line">a = <span class="number">10</span></span><br><span class="line">b = <span class="number">20</span></span><br><span class="line">c = eval(<span class="string">"a + b"</span>)</span><br><span class="line">print(c)</span><br><span class="line">dict = dict(a = <span class="number">100</span>, b = <span class="number">200</span>)</span><br><span class="line">d = eval(<span class="string">"a + b"</span>, dict)</span><br><span class="line">print(d)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">rapt</span></span><br><span class="line"><span class="string">30</span></span><br><span class="line"><span class="string">300</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="递归函数："><a href="#递归函数：" class="headerlink" title="递归函数："></a>递归函数：</h2><ul>
+<li><p>在函数内部直接或间接地调用自己的函数。类似于数学归纳法。每个递归函数需要包含终止条件和递归步骤两个部分。递归函数会创建大量函数对象，消耗较多内存、空间和运算能力，不建议在处理大量数据时使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(n)</span>:</span></span><br><span class="line">    print(<span class="string">"Testing..."</span>,n)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"over"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        test(n - <span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"Testing****"</span>,n)</span><br><span class="line">test(<span class="number">3</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">Testing... 3</span></span><br><span class="line"><span class="string">Testing... 2</span></span><br><span class="line"><span class="string">Testing... 1</span></span><br><span class="line"><span class="string">Testing... 0</span></span><br><span class="line"><span class="string">over</span></span><br><span class="line"><span class="string">Testing**** 0</span></span><br><span class="line"><span class="string">Testing**** 1</span></span><br><span class="line"><span class="string">Testing**** 2</span></span><br><span class="line"><span class="string">Testing**** 3</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 后进先出</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>递归计算阶乘：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span>  n * fact(n - <span class="number">1</span>)</span><br><span class="line">print(<span class="string">"the result is"</span>,fact(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="嵌套函数："><a href="#嵌套函数：" class="headerlink" title="嵌套函数："></a>嵌套函数：</h2><ul>
+<li><p>在函数内部定义的函数:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"outer running"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"inner running"</span>)</span><br><span class="line">    inner()</span><br><span class="line">outer()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>作用：封装，数据隐藏，外部无法访问嵌套函数。</p>
+<p>​            贯彻DRY- Don’t Repeat Yourself原则，在函数内部避免重复代码。</p>
+<p>​            闭包。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printName</span><span class="params">(isChinese, name, familyName)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_print</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        print(<span class="string">"&#123;0&#125; &#123;1&#125;"</span>.format(a, b))</span><br><span class="line">    <span class="keyword">if</span> isChinese:</span><br><span class="line">        inner_print(familyName, name)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        inner_print(name, familyName)</span><br><span class="line">printName(<span class="literal">True</span>, <span class="string">'azure'</span>, <span class="string">'rapt'</span>)</span><br><span class="line">printName(<span class="literal">False</span>, <span class="string">'Arch'</span>, <span class="string">'linux'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="nonlocal-关键字："><a href="#nonlocal-关键字：" class="headerlink" title="nonlocal 关键字："></a><code>nonlocal</code> 关键字：</h2><ul>
+<li><p>nonlocal  用来声明外层的局部变量    global 用来声明全局变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">233</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">external</span><span class="params">()</span>:</span></span><br><span class="line">    b = <span class="number">1024</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">internal</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> b</span><br><span class="line">        print(<span class="string">"internal"</span>,b)</span><br><span class="line">        b = <span class="number">10</span></span><br><span class="line">        <span class="keyword">global</span> a</span><br><span class="line">        a = <span class="number">23333</span></span><br><span class="line">    internal()</span><br><span class="line">    print(<span class="string">"external"</span>,b)</span><br><span class="line">external()</span><br><span class="line">print(<span class="string">"a:"</span>,a)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">internal 1024</span></span><br><span class="line"><span class="string">external 10</span></span><br><span class="line"><span class="string">a: 23333</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="LEGB规则："><a href="#LEGB规则：" class="headerlink" title="LEGB规则："></a>LEGB规则：</h2><ul>
+<li><p>Python在查找名称时，按照LEGB规则查找：</p>
+<p>Local - Enclosed - Global - Built in</p>
+<p>Local 函数或者类的方法内部</p>
+<p>Enclosed 嵌套函数(一个函数包裹另一个函数，闭包)</p>
+<p>Global 模块中的全局变量</p>
+<p>Built in 指Python为自己保留的特殊名称</p>
+</li>
+<li><p>如果某个name映射在局部命名空间local中没有找到，就会到闭包作用域进行搜索…依次类推，如果在所有命名空间都没有找到，产生NameError</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#str = 'global'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#str = 'outer'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="comment">#str = 'inner'</span></span><br><span class="line">        print(str)</span><br><span class="line">    inner()</span><br><span class="line">outer()</span><br><span class="line"><span class="comment"># &lt;class 'str'&gt;  Built-in</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>The fragrance clings to the hand that gives flowers.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward.png" alt="Raptazure 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/06/Python-Basics03/" rel="next" title="Python Control Flow">
+                <i class="fa fa-chevron-left"></i> Python Control Flow
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/08/Python-Basics05/" rel="prev" title="Python OOP">
+                Python OOP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/w.jpg" alt="Raptazure">
+            
+              <p class="site-author-name" itemprop="name">Raptazure</p>
+              <p class="site-description motion-element" itemprop="description">listen to your heart.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/raptazure" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:raptazure@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/raptazure?s=09" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/12039166/raptazure" target="_blank" title="Stack">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>Stack</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCRxN6c679jb5ZNBfBP8S4Tw/playlists?view_as=public" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://music.163.com/#/user/home?id=451103394" target="_blank" title="Music">
+                      
+                        <i class="fa fa-fw fa-music"></i>Music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/u/pusheen/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/raptazure/daily-tarot" title="Daily Tarot" target="_blank">Daily Tarot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/raptazure/code-notes" title="Learn to code" target="_blank">Learn to code</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念："><span class="nav-number">1.1.</span> <span class="nav-text">基本概念：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义和调用："><span class="nav-number">1.2.</span> <span class="nav-text">函数定义和调用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda表达式与匿名函数："><span class="nav-number">1.3.</span> <span class="nav-text">lambda表达式与匿名函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eval-函数："><span class="nav-number">1.4.</span> <span class="nav-text">eval() 函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归函数："><span class="nav-number">1.5.</span> <span class="nav-text">递归函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套函数："><span class="nav-number">1.6.</span> <span class="nav-text">嵌套函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nonlocal-关键字："><span class="nav-number">1.7.</span> <span class="nav-text">nonlocal 关键字：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LEGB规则："><span class="nav-number">1.8.</span> <span class="nav-text">LEGB规则：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Raptazure</span>
+
+
+<span class="theme-info">
+  <span class="post-count">&nbsp; | &nbsp;全站字数统计：41.4k</span>
+</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+
+    function createtime() {
+        var grt = new Date("10/13/2019 12:00:00");
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "已运行 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      visitors<i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      views<i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'EVUkDbU1ohGL72ksnMy69izP-gzGzoHsz',
+        appKey: 'wanUqtDrHVJUfYsFYclVX3Mx',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</body>
+</html>

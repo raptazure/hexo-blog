@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|monospace:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="$\quad$主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim基本命令">
+<meta property="og:url" content="https://raptazure.github.io/2019/11/12/Vim/index.html">
+<meta property="og:site_name" content="Raptazure&#39;s Blog">
+<meta property="og:description" content="$\quad$主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raptazure.github.io/2019/11/12/Vim/vim_main.png">
+<meta property="og:image" content="https://raptazure.github.io/2019/11/12/Vim/Screenshot_20191027_093305.png">
+<meta property="og:image" content="https://raptazure.github.io/2019/11/12/Vim/Screenshot_20191027_094013.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/classic1.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-1.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-2.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-3.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-4.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-5.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-6.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-7.gif">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/entry1.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/advanced1.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/morden1.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/text1.png">
+<meta property="og:updated_time" content="2020-05-13T00:55:35.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim基本命令">
+<meta name="twitter:description" content="$\quad$主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容">
+<meta name="twitter:image" content="https://raptazure.github.io/2019/11/12/Vim/vim_main.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://raptazure.github.io/2019/11/12/Vim/">
+
+
+
+
+
+  <title>Vim基本命令 | Raptazure's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Raptazure" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Raptazure's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://raptazure.github.io/2019/11/12/Vim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Raptazure">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/w.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Raptazure's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vim基本命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-12T00:00:00+08:00">
+                2019-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/12/Vim/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/12/Vim/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2019/11/12/Vim/vim_main.png"><br>$\quad$主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容</p>
+<a id="more"></a>
+<h4 id="进入普通模式："><a href="#进入普通模式：" class="headerlink" title="进入普通模式："></a>进入普通模式：</h4><ul>
+<li>VS Code Vim 修改键盘映射 Setting-&gt;Normal Mode Key Bindings ,添加：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   "vim.insertModeKeyBindings": [</span><br><span class="line"> &#123;</span><br><span class="line">    <span class="attr">"before"</span>: [<span class="string">"j"</span>, <span class="string">"j"</span>],</span><br><span class="line">	<span class="attr">"after"</span>: [<span class="string">"&lt;Esc&gt;"</span>]</span><br><span class="line"> &#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现按两次 j 键进入普通模式。</li>
+</ul>
+<h4 id="插入模式："><a href="#插入模式：" class="headerlink" title="插入模式："></a>插入模式：</h4><ul>
+<li><p>i -insert</p>
+</li>
+<li><p>I - insert before line</p>
+</li>
+<li><p>a - append</p>
+</li>
+<li><p>A - append after line</p>
+</li>
+<li><p>o - open a line below</p>
+</li>
+<li><p>O - open a line above</p>
+</li>
+<li><p>u - undo</p>
+</li>
+<li><p>快速删除字符: 这几个快捷键也可用于 Linux 终端</p>
+<p>crtl+h 删除上一个字符 ctrl+w 删除上一个单词 ctrl+u 删除当前行</p>
+</li>
+<li><p>在 normal 模式下使用<code>gi</code>快速跳转至最后一次编辑的位置并进入插入模式</p>
+</li>
+<li><p>Manjaro 里可以直接交换大写锁定与 ctrl</p>
+</li>
+</ul>
+<h4 id="命令模式："><a href="#命令模式：" class="headerlink" title="命令模式："></a>命令模式：</h4><ul>
+<li><p>:w 保存 :q 退出</p>
+</li>
+<li><p>:vs - vertical split :sp - split</p>
+</li>
+<li><p>:%s/foo/bar/g 全局替换</p>
+</li>
+</ul>
+<h4 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式:"></a>可视模式:</h4><ul>
+<li>快速选择文本 - hjkl 选择 S</li>
+<li>V 进入 visual 模式并选择行 - 执行各种命令,比如 d - 删除 y - 复制</li>
+<li>crtl+v 进入块状选择模式 - hjkl 选择</li>
+</ul>
+<h4 id="Vim-快速移动-Normal-Visual"><a href="#Vim-快速移动-Normal-Visual" class="headerlink" title="Vim 快速移动: Normal/Visual"></a>Vim 快速移动: Normal/Visual</h4><ul>
+<li><p>h j(下) k(上) l</p>
+</li>
+<li><p>在单词间移动: w/W 移动到下一个 word/WORD 开头, e/E 下一个 word/WORD 末尾</p>
+</li>
+<li><p>b/B 回到上一个 word/WORD 开头, 可以理解为 backword</p>
+<p>此处 word 指以非空白符分隔的单词, WORD 是以空白符分隔的词</p>
+</li>
+<li><p><strong>行间</strong>搜索移动：使用<code>f{char}</code>可以移动到字符 char 上，使用 t 移动到 char 的前一个字符。可以使用<code>;</code> / <code>,</code>继续搜该行下一个/上一个字符。<code>F{char}</code>表示反过来搜前面的字符。</p>
+</li>
+<li><p>非空白字符(可用 0 w 组合来替代)，<strong>$移动到行尾</strong>，g_移动到行尾非空白字符。</p>
+</li>
+<li><p>垂直移动：()在句子中移动，{}在段落之间移动。</p>
+</li>
+<li><p>页面移动：<code>gg</code> / <code>G</code>移动到文件开头/结尾，可用 ctrl+o 返回光标的上个位置。H/M/L 跳转到屏幕开头 Head，中间 Middle，结尾 Lower。crtl+u crtl+f 上下翻页 upward/forward。zz 把屏幕置为中间。</p>
+</li>
+</ul>
+<h4 id="Vim-快速增删改查：Normal"><a href="#Vim-快速增删改查：Normal" class="headerlink" title="Vim 快速增删改查：Normal"></a>Vim 快速增删改查：Normal</h4><ul>
+<li><p>增加：a/i/o A/I/O</p>
+</li>
+<li><p><code>:e!</code>重新加载当前文件</p>
+</li>
+<li><p>删除：<code>x</code>删除一个字符，使用<code>d</code>配合文本对象快速删除一个单词</p>
+<p><code>daw</code> delete around word 删除单词及周围空格</p>
+<p><code>diw</code> 删除单词但不删除周围空格</p>
+<p><code>dd</code> 删除当前行</p>
+<p><code>dt</code> delete to + 符号 比如<code>dt)</code>删除光标到右括号的所有内容（清空括号）</p>
+<p><code>d$</code> 删除光标到行尾的内容</p>
+<p><code>d0</code> 删除光标到行首的内容</p>
+<p><code>d</code>和<code>x</code>可搭配数字实现多次执行，比如<code>4x</code>删除四个字符，<code>2dd</code>删除两行</p>
+</li>
+<li><p>修改：<code>r</code> - replace 替换一个字符，比如<code>ra</code>将当前字符改为 a</p>
+<p><code>R</code> - 进入 Replace 模式，可以连续替换，Esc 退回 Normal 模式</p>
+<p><code>c</code> - change 配合文本对象进行快速修改 （结合 d 的操作组合）</p>
+<p><code>caw</code> <code>cw</code> 删除单词并进入插入模式 <code>C</code>删除整行并进入插入模式</p>
+<p><code>ct&quot;</code> 删除光标到后引号中的内容并进入插入模式</p>
+<p><code>s</code> - substitute 替换并进入插入模式 <code>4s</code>删除四个字符并进入插入模式</p>
+<p><code>S</code> - 删除整行并进入插入模式</p>
+</li>
+<li><p>查询：<code>/</code> 或 <code>？</code> 进行前向或反向搜索，<code>n</code>或<code>N</code>跳转到下一个或上一个匹配。</p>
+<p><code>*</code>或者<code>#</code>进行当前光标所处单词的前向和后向匹配。</p>
+</li>
+</ul>
+<h4 id="Vim-搜索替换："><a href="#Vim-搜索替换：" class="headerlink" title="Vim 搜索替换："></a>Vim 搜索替换：</h4><ul>
+<li><p>substitute 命令允许查找并替换文本，支持正则表达式。</p>
+<p><code>:[range]s[ubstitute]/{pattern}/{string}/[flags]</code></p>
+<p>range 10,20 表示 10 ～ 20 行，%表示全部</p>
+<p>pattern 要替换的模式，string 是替换后的文本</p>
+<p>flags 替换标志位 g - global，c - confirm</p>
+<p>​ n - 报告匹配到的次数而不替换，可用来查询匹配次数</p>
+<p>比如<code>:%s/self/this/g</code> <code>:1,6s/self/this/g</code> <code>:1,6s/self//n</code></p>
+<p><code>:%s/\&lt;quack\&gt;jiao/g</code> 使用正则精确替换一个单词</p>
+</li>
+</ul>
+<h4 id="多文件操作："><a href="#多文件操作：" class="headerlink" title="多文件操作："></a>多文件操作：</h4><ul>
+<li><p>Buffer：打开的一个文件的内存缓冲区，Vim 打开一个文件会加载文件到缓冲区，之后的修改都是针对内存中的缓冲区，并不会直接保存到文件，执行:w 后才会把修改内容写入文件。使用<code>:ls</code>列举当前缓冲区，使用<code>:b</code>跳到第 n 个缓冲区。<code>bnext</code> 跳转到下一个缓冲区，<code>bpre</code> 跳转到上一个缓冲区，<code>:b buffer_name</code>使用 tab 补全进行跳转。</p>
+</li>
+<li><p>Window：Buffer 的可视化分割区域。一个缓冲区可以分成多个缓冲区，每个窗口可以打开不同缓存区。<code>Crtl+w w</code>在窗口间循环切换。<code>:q</code> 可以关闭窗口，<code>crtl+w =</code>使所有窗口等宽等高。</p>
+</li>
+<li><p>Tab：组织窗口为一个工作区。Tab 是可以容纳一系列窗口的容器，Vim 的 tab 可以看成 Linux 虚拟桌面。<code>:tabe {filename}</code> 在新标签中打开 filename <code>：tabnew duck.py</code>打开一个编辑 python 文件的 Tab(工作区)。</p>
+</li>
+</ul>
+<h4 id="Text-Object"><a href="#Text-Object" class="headerlink" title="Text Object:"></a>Text Object:</h4><ul>
+<li><p>Vim 里文本也有对象的概念，比如一个单词，一段句子，一个段落。通过修改文本对象比修改单个字符高效。</p>
+</li>
+<li><p>使用文本对象：<code>dw</code>删除一个单词 <code>[number]&lt;command&gt;[text object]</code></p>
+<p>number 次数，command - d(delete) c(change) y(yank)</p>
+<p>text object - w(word) s(sentence) p(paragragh)</p>
+<p><img src="/2019/11/12/Vim/Screenshot_20191027_093305.png"></p>
+</li>
+</ul>
+<p><img src="/2019/11/12/Vim/Screenshot_20191027_094013.png" style="zoom: 67%;"></p>
+<h4 id="复制粘贴与寄存器使用："><a href="#复制粘贴与寄存器使用：" class="headerlink" title="复制粘贴与寄存器使用："></a>复制粘贴与寄存器使用：</h4><ul>
+<li><p>Vim Normal 模式复制粘贴：</p>
+<ul>
+<li>复制粘贴分别使用 y - yank 和 p - put，剪贴 d 和 p。</li>
+<li>可以使用 v(visual)选择需要复制的地方，然后用 p 粘贴。</li>
+<li>配合文本对象：比如使用 yiw 复制一个单词，yy 复制一行。</li>
+</ul>
+</li>
+<li><p>Vim Insert 模式复制粘贴：</p>
+<ul>
+<li>在vimrc中设置autoindent会使Python代码缩进错乱，这时需要用<code>:set paste</code> <code>:set nopaste</code> 解决。</li>
+<li>Insert下使用ctrl+v或cmd+v粘贴即可。</li>
+</ul>
+</li>
+<li><p>Vim 的寄存器：</p>
+<ul>
+<li><p>Vim 操作的是寄存器而不是系统剪贴板</p>
+</li>
+<li><p>默认使用 d 删除或 y 复制的内容放到“无名寄存器”</p>
+</li>
+<li><p>用 x 删除一个字符放到无名寄存器，然后 p 粘贴，可调换两个字符</p>
+</li>
+<li><p>深入寄存器：Vim 不使用单一剪切版进行剪切，复制与粘贴，而是多组寄存器。通过<code>“{register}</code>前缀可以指定寄存器，不指定则默认使用无名寄存器。比如使用<code>“ayiw</code>复制一个单词到寄存器 a 中，<code>“bdd</code>删除当前行到寄存器 b 中。可使用<code>:reg a</code>查看 a 寄存器中的内容，<code>“ap</code>粘贴 a 寄存器中的内容。Vim 中<code>“”</code>表示无名寄存器，缺省使用，<code>“” p</code>等同于 p。</p>
+</li>
+<li><p>除了有名寄存器 a-z，还有其他常见寄存器，比如复制专用寄存器<code>“0</code>使用 y 复制文本同时会被拷贝到复制寄存器 0，在复制前加上<code>“+</code>表示复制到系统剪贴板，也可使用<code>:set clipboard=unnamed</code>直接启用系统剪贴板。还有一些寄存器比如“% 当前文件名 “. 上次插入的文本</p>
+</li>
+</ul>
+</li>
+<li><p>以上很多内容可在 VS Code Vim - setting 里进行设置而使操作便利。</p>
+</li>
+</ul>
+<h4 id="Vim-Macro："><a href="#Vim-Macro：" class="headerlink" title="Vim Macro："></a>Vim Macro：</h4><ul>
+<li>给多行 url 链接加上双引号 - 使用宏</li>
+<li>宏可以看成一系列命令的集合，可以使用宏录制一系列操作，然后再回放，从而快速把一系列命令用在多行文本上</li>
+<li>Normal 下使用 q 录制/结束录制，使用<code>q{register}</code>选择要保存的寄存器，把录制的命令保存到其中，比如<code>qa</code>。</li>
+<li>使用<code>@register</code>回放寄存器中保存的一系列命令</li>
+<li>可在操作结尾录制下一行操作，使用<code>number@a</code>实现多行批量操作</li>
+</ul>
+<h4 id="其他的话："><a href="#其他的话：" class="headerlink" title="其他的话："></a>其他的话：</h4><p>​ 一些 Vim 命令本文没有提到(因为有的在 VS Code Vim 下不支持，而窝主要是想用这个扩展让 VS Code 更高效…)，其实 Vim 还有自定义度极高的配置文件和很多强大的插件，可以自由探索，试试 NeoVim 也是很不错的。</p>
+<h4 id="图解-Vim-命令："><a href="#图解-Vim-命令：" class="headerlink" title="图解 Vim 命令："></a>图解 Vim 命令：</h4><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/classic1.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-1.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-2.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-3.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-4.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-5.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-6.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-tutorial-7.gif" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/entry1.png" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/advanced1.png" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/morden1.png" alt></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/10/text1.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>The fragrance clings to the hand that gives flowers.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward.png" alt="Raptazure 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/10/manjaro-i3/" rel="next" title="Manjaro-i3">
+                <i class="fa fa-chevron-left"></i> Manjaro-i3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/25/LINEAR-LIST/" rel="prev" title="链表 - Linked List">
+                链表 - Linked List <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/w.jpg" alt="Raptazure">
+            
+              <p class="site-author-name" itemprop="name">Raptazure</p>
+              <p class="site-description motion-element" itemprop="description">listen to your heart.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/raptazure" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:raptazure@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/raptazure?s=09" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/12039166/raptazure" target="_blank" title="Stack">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>Stack</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCRxN6c679jb5ZNBfBP8S4Tw/playlists?view_as=public" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://music.163.com/#/user/home?id=451103394" target="_blank" title="Music">
+                      
+                        <i class="fa fa-fw fa-music"></i>Music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/u/pusheen/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/raptazure/daily-tarot" title="Daily Tarot" target="_blank">Daily Tarot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/raptazure/code-notes" title="Learn to code" target="_blank">Learn to code</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进入普通模式："><span class="nav-number">1.</span> <span class="nav-text">进入普通模式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入模式："><span class="nav-number">2.</span> <span class="nav-text">插入模式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令模式："><span class="nav-number">3.</span> <span class="nav-text">命令模式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可视模式"><span class="nav-number">4.</span> <span class="nav-text">可视模式:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim-快速移动-Normal-Visual"><span class="nav-number">5.</span> <span class="nav-text">Vim 快速移动: Normal/Visual</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim-快速增删改查：Normal"><span class="nav-number">6.</span> <span class="nav-text">Vim 快速增删改查：Normal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim-搜索替换："><span class="nav-number">7.</span> <span class="nav-text">Vim 搜索替换：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多文件操作："><span class="nav-number">8.</span> <span class="nav-text">多文件操作：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Text-Object"><span class="nav-number">9.</span> <span class="nav-text">Text Object:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制粘贴与寄存器使用："><span class="nav-number">10.</span> <span class="nav-text">复制粘贴与寄存器使用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim-Macro："><span class="nav-number">11.</span> <span class="nav-text">Vim Macro：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他的话："><span class="nav-number">12.</span> <span class="nav-text">其他的话：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图解-Vim-命令："><span class="nav-number">13.</span> <span class="nav-text">图解 Vim 命令：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Raptazure</span>
+
+
+<span class="theme-info">
+  <span class="post-count">&nbsp; | &nbsp;全站字数统计：41.4k</span>
+</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+
+    function createtime() {
+        var grt = new Date("10/13/2019 12:00:00");
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "已运行 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      visitors<i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      views<i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'EVUkDbU1ohGL72ksnMy69izP-gzGzoHsz',
+        appKey: 'wanUqtDrHVJUfYsFYclVX3Mx',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</body>
+</html>

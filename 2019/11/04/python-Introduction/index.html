@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|monospace:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="图形化程序设计 Prepare(Arch):   sudo pacman -S tk  1234567import turtle            # 导入turtle模块turtle.showturtle()      # 显示箭头turtle.write(&quot;raptazure&quot;) # 写字符串 turtle.forward(300)       # 前进300像素turtle.color(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Introduction">
+<meta property="og:url" content="https://raptazure.github.io/2019/11/04/python-Introduction/index.html">
+<meta property="og:site_name" content="Raptazure&#39;s Blog">
+<meta property="og:description" content="图形化程序设计 Prepare(Arch):   sudo pacman -S tk  1234567import turtle            # 导入turtle模块turtle.showturtle()      # 显示箭头turtle.write(&quot;raptazure&quot;) # 写字符串 turtle.forward(300)       # 前进300像素turtle.color(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-13T00:55:35.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Introduction">
+<meta name="twitter:description" content="图形化程序设计 Prepare(Arch):   sudo pacman -S tk  1234567import turtle            # 导入turtle模块turtle.showturtle()      # 显示箭头turtle.write(&quot;raptazure&quot;) # 写字符串 turtle.forward(300)       # 前进300像素turtle.color(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://raptazure.github.io/2019/11/04/python-Introduction/">
+
+
+
+
+
+  <title>Python Introduction | Raptazure's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Raptazure" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Raptazure's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://raptazure.github.io/2019/11/04/python-Introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Raptazure">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/w.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Raptazure's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python Introduction</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-04T00:00:00+08:00">
+                2019-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/04/python-Introduction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/04/python-Introduction/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="图形化程序设计"><a href="#图形化程序设计" class="headerlink" title="图形化程序设计"></a>图形化程序设计</h2><ul>
+<li>Prepare(Arch):   <code>sudo pacman -S tk</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle            <span class="comment"># 导入turtle模块</span></span><br><span class="line">turtle.showturtle()      <span class="comment"># 显示箭头</span></span><br><span class="line">turtle.write(<span class="string">"raptazure"</span>) <span class="comment"># 写字符串 </span></span><br><span class="line">turtle.forward(<span class="number">300</span>)       <span class="comment"># 前进300像素</span></span><br><span class="line">turtle.color(<span class="string">"red"</span>)       <span class="comment"># 画笔颜色改为red</span></span><br><span class="line">turtle.left(<span class="number">90</span>)           <span class="comment"># 箭头左转90度</span></span><br><span class="line">turtle.goto(<span class="number">0</span>,<span class="number">50</span>)         <span class="comment"># 去坐标（0,50）</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>画一个奥运五环</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.width(<span class="number">10</span>)</span><br><span class="line">turtle.color(<span class="string">"blue"</span>)</span><br><span class="line">turtle.circle(<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.goto(<span class="number">120</span>,<span class="number">0</span>)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.color(<span class="string">"black"</span>)</span><br><span class="line">turtle.circle(<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.goto(<span class="number">240</span>,<span class="number">0</span>)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.color(<span class="string">"red"</span>)</span><br><span class="line">turtle.circle(<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.goto(<span class="number">60</span>,<span class="number">-50</span>)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.color(<span class="string">"yellow"</span>)</span><br><span class="line">turtle.circle(<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.goto(<span class="number">180</span>,<span class="number">-50</span>)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.color(<span class="string">"green"</span>)</span><br><span class="line">turtle.circle(<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Python程序构成"><a href="#Python程序构成" class="headerlink" title="Python程序构成"></a>Python程序构成</h2><ul>
+<li>由模块构成，一个模块对应一个python源文件。</li>
+<li>模块由语句构成，语句是python语句的构造单元，用于创建对象，变量赋值，调用函数，控制语句等。</li>
+<li>注意缩进 tab ; 使用 \ 行连接符<br>​官方PEP-8代码风格说明：<a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>​            Python中，一切皆对象。每个对象由标识<code>id</code>，类型<code>type</code>，值<code>value</code> 组成</p>
+<ul>
+<li><p>标识用于唯一标识对象，通常对应对象在计算机内存中的地址。使用内置函数id(obj)可以返回对象obj的标识。</p>
+</li>
+<li><p>类型用于表示对象存储的“数据”的类型，类型可以限制对象的取值范围以及可以执行的操作。可以使用type(obj)获得对象的所属类型。</p>
+</li>
+<li><p>值表示对象所存储的数据的信息，使用print(obj)可以直接打印出值。</p>
+</li>
+<li><p>对象的本质是一个内存块，拥有特定的值，支持特定类型的相关操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span></span><br><span class="line">b = <span class="number">3</span></span><br><span class="line">r = id(a)</span><br><span class="line">s= id(b)</span><br><span class="line">print(r,s)</span><br><span class="line"><span class="comment"># 140637462492192 140637462492192</span></span><br><span class="line"><span class="comment"># id：140637462492192</span></span><br><span class="line"><span class="comment"># type：int</span></span><br><span class="line"><span class="comment"># value：3</span></span><br><span class="line"><span class="comment"># 参考 整数缓存机制</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><p>在Python中，变量也称为：对象的引用。因为变量存储的就是对象的地址。变量通过地址引用了“对象”。变量位于：栈内存   对象位于：堆内存</p>
+</li>
+<li><p>Python是动态类型语言，变量不需要显式声明类型。根据变量引用的对象，Python解释器自动确定数据类型。</p>
+</li>
+<li><p>Python是强类型语言，每个对象都有数据类型，只支持该类型支持的操作。</p>
+</li>
+</ul>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
+<li><p>用于变量，函数，类，模块的名称。</p>
+<ul>
+<li><p>区分大小写</p>
+</li>
+<li><p>第一个字母必须为字母，下划线</p>
+</li>
+<li><p>不能使用关键字，如 <code>if</code> <code>or</code> <code>while</code></p>
+</li>
+<li><p>以双下划线开头和结尾的名称通常有特殊含义，比如<code>__init__</code>是类的构造函数</p>
+</li>
+<li><p>使用 help() 查看关键字，或者在shell下按F1</p>
+</li>
+</ul>
+</li>
+<li><p>命名规则：</p>
+<ul>
+<li>模块名和包名：全小写，尽量简单，下划线连接  math  os  sys</li>
+<li>函数名：全小写，下划线隔开  <code>my_name</code></li>
+<li>类名：首字母大写，采用驼峰原则，多个单词时，每个单词首字母大写，其余部分小写。 <code>MyPhone</code>   <code>Phone</code></li>
+<li>常量名：全大写字母，多个单词用下划线隔开 <code>MAX_SPEED</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="变量和简单赋值语句"><a href="#变量和简单赋值语句" class="headerlink" title="变量和简单赋值语句"></a>变量和简单赋值语句</h2><ul>
+<li>变量声明和赋值用于将一个变量绑定到一个对象上     变量名 = 表达式</li>
+<li>最简单的表达式是字面量，比如a = 123 。运行过程中，解释器先运行右边的表达式，生成一个代表表达式运算结果的对象，然后再将这个对象地址赋值给左边的变量。</li>
+<li>删除变量和垃圾回收机制：可通过del语句（从栈中）删除不再使用的变量<code>del a</code>。如果对象没有变量引用，就会被垃圾器回收，清理内存空间。</li>
+</ul>
+<h2 id="链式赋值和系列解包赋值"><a href="#链式赋值和系列解包赋值" class="headerlink" title="链式赋值和系列解包赋值"></a>链式赋值和系列解包赋值</h2><ul>
+<li><p>链式赋值用于同一个对象赋值给多个变量  如<code>x=y=123</code></p>
+</li>
+<li><p>系列解包赋值给对应相同个数的变量-&gt;个数必须保持一致<code>a,b,c=4,5,6</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 系列解包赋值实现变量互换</span></span><br><span class="line">a,b = <span class="number">1</span>,<span class="number">2</span></span><br><span class="line">a,b = b,a</span><br><span class="line">print(a,b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>python不支持常量，即没有语法规则限制改变一个常量的值。我们只能约定常量的命名规则，以及在程序的逻辑上不对常量的值作出修改。</p>
+</li>
+</ul>
+<h2 id="内置数据类型-amp-运算符"><a href="#内置数据类型-amp-运算符" class="headerlink" title="内置数据类型 &amp; 运算符"></a>内置数据类型 &amp; 运算符</h2><ul>
+<li><p>整形，浮点型，布尔型，字符串型</p>
+</li>
+<li><p><code>+   -   *   /    //(整数除法)   %   **(幂)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比较运算符可连用  3&lt;a&lt;10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">3</span>&lt;a&lt;<span class="number">10</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="comment"># 位操作</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">0b11001</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">0b01000</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = a|b  <span class="comment">#按位或</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(c)</span><br><span class="line"><span class="string">'0b11001'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(a&amp;b)</span><br><span class="line"><span class="string">'0b1000'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(a^b)</span><br><span class="line"><span class="string">'0b10001'</span></span><br><span class="line"><span class="comment"># 按位翻转~ x翻转为-(x+1)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>~a</span><br><span class="line"><span class="number">-26</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(a)</span><br><span class="line"><span class="string">'0b11001'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(~a)</span><br><span class="line"><span class="string">'-0b11010'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt;&lt; <span class="number">1</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt;&lt; <span class="number">3</span></span><br><span class="line"><span class="number">24</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt;&lt; <span class="number">2</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">8</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt;&gt; <span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt;&gt; <span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="comment"># Python不支持++和--</span></span><br><span class="line"><span class="comment"># 相应复合赋值运算符，比如&gt;&gt;=   ^=   **=</span></span><br><span class="line"><span class="comment"># 优先级：位运算/算术运算&gt;比较运算符&gt;赋值运算符&gt;逻辑运算符</span></span><br><span class="line"><span class="comment"># 常用小括号</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>执行<code>a += 1</code>时会找到a进行+1操作生成一个新对象，把新对象地址给a，原来不再被引用的对象会被垃圾回收。</p>
+</li>
+<li><p>使用<code>divmod()</code>函数同时得到商和余数  <code>divmod(13,3)</code>&gt;&gt;&gt;<code>(4,1)</code> -&gt; tuple</p>
+</li>
+<li><p>整数：</p>
+<ul>
+<li><p><code>0b 0B 二进制</code> <code>0o 0O 八进制</code> <code>0x 0X 十六进制</code>  方便位运算</p>
+</li>
+<li><p>使用<code>int()</code>进行类型转换：浮点数舍弃小数部分，布尔值True转为1，False转为0，字符串符合整数格式(浮点数不行)-&gt;整数</p>
+</li>
+<li><p>自动转型：整数和浮点数运算，结果转为浮点数</p>
+</li>
+<li><p>Python3中，int可存储任意大小的整数，取消了long，不存在整数溢出，因此适合科学运算。</p>
+</li>
+</ul>
+</li>
+<li><p>浮点数：</p>
+<ul>
+<li>3.14可表示为314e-2或者314E-2</li>
+<li>这些数字在内存中也是按照科学计数法存储</li>
+<li><code>float()</code>强转时生成一个类型为float的新对象</li>
+<li><code>round(value)</code>可以返回四舍五入的值</li>
+</ul>
+</li>
+<li><p>时间的表示：</p>
+<ul>
+<li><p>计算机时间的表示从1970.1.1 00:00:00（unix时间点）开始，以ms为单位进行计时。</p>
+</li>
+<li><p>python中ky通过<code>time.time()</code>获得当前时刻，返回值以秒为单位，是1/1000 ms精度的浮点值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">b = int(time.time())</span><br><span class="line">totalYears = b/<span class="number">60</span>//<span class="number">60</span>//<span class="number">24</span>//<span class="number">365</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>布尔值：</p>
+<ul>
+<li>Ture Flase本质还是0与1，可以和数字相加</li>
+<li>比较运算符 &amp; 逻辑运算符 <code>and or not</code> -&gt; 短路特性</li>
+</ul>
+</li>
+<li><p>同一运算符：</p>
+<ul>
+<li>同一运算符用于比较两个对象的存储单元，实际比较的是对象是否指向同一个内存地址。运算符<code>is</code>判断两个标识符是不是引用同一个对象，<code>is not</code>判断两个标识符是否引用不同对象。</li>
+<li><code>is</code>与<code>==</code>区别：is用于判断两个变量引用的对象是否为同一个，比较对象的地址。==用于判断引用变量的值是否相等，默认调用对象的<code>__eq__()</code>方法。is 运算比 == 效率高( ==调用了方法)，在变量和None比较时应使用is。</li>
+</ul>
+</li>
+<li><p>整数缓存问题：小整数对象在全局解释器范围内被放入缓存以重复使用。</p>
+<ul>
+<li>Python仅仅对比较小(范围为[-5, 256])的整数对象进行缓存(使用同一个对象而不建立新对象)。需要注意的是，这仅仅是在<strong>命令行</strong>中执行，而在Pycharm，VS Code或者保存为文件执行，结果是不一样的，这是因为解释器进行了一部分优化([-5, inf])。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IDLE</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c=<span class="number">256</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d=<span class="number">256</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c <span class="keyword">is</span> d</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e =<span class="number">257</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = <span class="number">257</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e <span class="keyword">is</span> f</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="一个小练习"><a href="#一个小练习" class="headerlink" title="一个小练习"></a>一个小练习</h2><p>​        任务：定义多点坐标，绘出折线，计算起始点和终止点距离。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="comment"># 定义多个点的坐标</span></span><br><span class="line">x1,y1 = <span class="number">100</span>,<span class="number">100</span></span><br><span class="line">x2,y2 = <span class="number">100</span>,<span class="number">-100</span></span><br><span class="line">x3,y3 = <span class="number">-100</span>,<span class="number">-100</span></span><br><span class="line">x4,y4 = <span class="number">-100</span>,<span class="number">100</span></span><br><span class="line"><span class="comment">#绘制折线</span></span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.goto(x1,y1)</span><br><span class="line">turtle.pendown()</span><br><span class="line">turtle.goto(x2,y2)</span><br><span class="line">turtle.goto(x3,y3)</span><br><span class="line">turtle.goto(x4,y4)</span><br><span class="line"><span class="comment">#计算距离</span></span><br><span class="line">distance = math.sqrt((x1-x4)**<span class="number">2</span>+(y1-y4)**<span class="number">2</span>)</span><br><span class="line">turtle.write(distance)</span><br></pre></td></tr></table></figure>
+<p>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>The fragrance clings to the hand that gives flowers.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/reward.png" alt="Raptazure 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/27/Binary-Search/" rel="next" title="Binary Search">
+                <i class="fa fa-chevron-left"></i> Binary Search
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/04/PAT/" rel="prev" title="PAT">
+                PAT <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/w.jpg" alt="Raptazure">
+            
+              <p class="site-author-name" itemprop="name">Raptazure</p>
+              <p class="site-description motion-element" itemprop="description">listen to your heart.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/raptazure" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:raptazure@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/raptazure?s=09" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/12039166/raptazure" target="_blank" title="Stack">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>Stack</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCRxN6c679jb5ZNBfBP8S4Tw/playlists?view_as=public" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://music.163.com/#/user/home?id=451103394" target="_blank" title="Music">
+                      
+                        <i class="fa fa-fw fa-music"></i>Music</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode-cn.com/u/pusheen/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/raptazure/daily-tarot" title="Daily Tarot" target="_blank">Daily Tarot</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/raptazure/code-notes" title="Learn to code" target="_blank">Learn to code</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图形化程序设计"><span class="nav-number">1.</span> <span class="nav-text">图形化程序设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python程序构成"><span class="nav-number">2.</span> <span class="nav-text">Python程序构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">3.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">5.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量和简单赋值语句"><span class="nav-number">6.</span> <span class="nav-text">变量和简单赋值语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式赋值和系列解包赋值"><span class="nav-number">7.</span> <span class="nav-text">链式赋值和系列解包赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置数据类型-amp-运算符"><span class="nav-number">8.</span> <span class="nav-text">内置数据类型 &amp; 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个小练习"><span class="nav-number">9.</span> <span class="nav-text">一个小练习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Raptazure</span>
+
+
+<span class="theme-info">
+  <span class="post-count">&nbsp; | &nbsp;全站字数统计：41.4k</span>
+</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+
+    function createtime() {
+        var grt = new Date("10/13/2019 12:00:00");
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "已运行 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      visitors<i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      views<i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'EVUkDbU1ohGL72ksnMy69izP-gzGzoHsz',
+        appKey: 'wanUqtDrHVJUfYsFYclVX3Mx',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</body>
+</html>
