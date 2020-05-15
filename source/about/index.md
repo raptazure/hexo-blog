@@ -5,10 +5,37 @@ mathjax: true
 ---
 
 <br>
-$\quad$唔，感谢来访~
+嘿，远方的朋友，你好呀，欢迎来到我的博客，这里是一些自述～
 
-$\quad$目前，我是一名 2019 级软件工程专业的学生，正在努力地上大学。在大一上学期，有幸了解了 git 与 GitHub，学会了使用 Linux 的基本命令，从此时常感叹开源的力量之大，也想为如此庞大的开源社区做些什么。大一寒假，我开始了解前端，认识了 JavaScript 这门神奇的语言以及随之而来的丰富生态，不管是 Vue 还是 Node.js，不管是 tfjs 还是 johnny-five，还有 TypeScript 的兴起，都展示着巨大的生命力，让人非常期望未来的事情呢。因为接下来要在实验室做前端，那么博客的内容也将主要是前端相关吧。
+### 当前概况
 
-$\quad$像大部分双鱼一样，我也喜欢分享，喜欢时常写点东西，兴趣嘛，也比较多。所以除了一些编程上的总结之外，可能还会混入一些其他的东西，比如音乐啊，动漫啊，塔罗啊，画画啊等等，甚至可能单纯只是一些内心的小想法而已。
+普通大一学生，软件工程专业，就读于哈尔滨工业大学(威海)
 
-$\quad$有明确的目标，在当下是一件幸福的事情，然而在确定目标之后，更要踏实地去努力。希望自己的一些总结和想法也能对大家有所帮助呢。
+### 性格属性
+
+- 太阳**双鱼座**，月亮处女座，上升处女座
+- 九型人格中的**第四型**（艺术型、自我型、凭感觉者）
+- **INFP** 类型 (introversion, intuition, feeling, perception)
+
+### 兴趣爱好
+
+- **音乐**：新古典，后摇，OST
+- **二次元**：[bilibili 追番列表](https://space.bilibili.com/35829586/bangumi)
+- **开源与技术分享**：[GitHub](https://github.com/raptazure) ｜ [掘金](https://juejin.im/user/5e5cae00518825493f6ceb21/pins)
+- **神秘学**：星盘，塔罗牌 ｜ [VS Code Tarot Extension](https://github.com/raptazure/daily-tarot)
+- **画画**：处于想学的阶段，喜欢的画师 [@avogado6](https://twitter.com/avogado6)
+- **写作**：总喜欢记录点什么，分享点什么，所以也就有了这个博客
+- **游戏**：兴趣变淡，主要玩音游(Deemo)及主机移植游戏，最喜欢 Nier:Automata
+
+### 技术相关
+
+- **语言**：JavaScript, TypeScript, C, Python, C++
+- **技术栈**：Vue, Express, Nest, MongoDB
+- **开发系统**：macOS > Linux > Windows (WSL)
+- **其他技能**：git, vim, docker, svn, google
+
+### 联系方式
+
+- [邮箱](mailto:1051276278@qq.com) | [Twitter](https://twitter.com/raptazure)
+  <br>
+  > _平台统一化 @raptazure / @Raptazure_ <br> _重构关于 2020.05.15_
