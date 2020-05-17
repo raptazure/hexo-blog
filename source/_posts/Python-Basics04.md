@@ -1,7 +1,8 @@
 ---
 date: 2019-11-07
 title: Python Function
-categories: Python
+tags: Python
+categories: 编程
 ---
 # 函数
 ## 基本概念：

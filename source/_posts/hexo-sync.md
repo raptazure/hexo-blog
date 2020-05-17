@@ -1,7 +1,7 @@
 ---
 title: Hexo多端同步
 date: 2020-02-25 22:42:26
-categories: Tools
+categories: 技术
 tags: git
 ---
 

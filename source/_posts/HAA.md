@@ -1,6 +1,6 @@
 ---
 title: 高精度加法模板及应用
-categories: Algorithms
+categories: 编程
 tags: LeetCode
 date: 2019-12-15
 ---

@@ -1,7 +1,8 @@
 ---
 date: 2019-11-09
 title: Python Exception
-categories: Python
+tags: Python
+categories: 编程
 ---
 
 ## 异常

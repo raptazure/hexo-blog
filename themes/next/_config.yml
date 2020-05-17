@@ -42,6 +42,13 @@ keywords: "Hexo, NexT"
 # Set rss to specific value if you have burned your feed already.
 rss:
 
+feed:
+  type: rss2
+  path: rss2.xml
+  limit: 10
+  hub:
+  content: "true"
+
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
@@ -93,8 +100,9 @@ index_with_subtitle: false
 menu:
   home: / || home
   about: /about/ || user
-  tags: /tags/ || tags
   categories: /categories/ || th
+  tags: /tags/ || tags
+  说说: /diary/ || calendar
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -143,13 +151,15 @@ social_icons:
 
 # Blog rolls
 links_icon: link
-links_title: Links
+links_title: 友情链接
 links_layout: block
 #links_layout: inline
 links:
-  LeetCode: https://leetcode-cn.com/u/pusheen/
-  Daily Tarot: https://github.com/raptazure/daily-tarot
-  Learn to code: https://github.com/raptazure/code-notes
+  Lionad: http://www.lionad.art/
+  静かな森: https://innei.ren/
+  xsun2001: https://xsun.io/
+  lhd-code: https://lhd-code.github.io/lhd-code-new.github.io/
+  Liu Xinlong: https://2191210307.github.io/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif

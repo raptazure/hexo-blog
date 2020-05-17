@@ -1,7 +1,8 @@
 ---
 title: Binary Search
 author: Raptazure
-categories: Algorithms
+categories: 编程
+tags: 算法
 date: 2019-10-27
 ---
 

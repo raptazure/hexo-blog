@@ -1,8 +1,8 @@
 ---
 title: 在JS中体验TS的快感
 date: 2020-02-26
-categories: JavaScript
-tags: TypeScript
+categories: 编程
+tags: ['TypeScript', 'JavaScript']
 mathjax: true
 ---
 

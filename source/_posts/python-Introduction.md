@@ -1,8 +1,8 @@
 ---
 date: 2019-11-04
 title: Python Introduction
-categories: Python
-
+categories: 编程
+tags: Python
 ---
 
 ## 图形化程序设计

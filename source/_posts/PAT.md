@@ -1,6 +1,7 @@
 ---
 title: PAT
-categories: Algorithms
+categories: 编程
+tags: 算法
 date: 2019-11-04
 ---
 

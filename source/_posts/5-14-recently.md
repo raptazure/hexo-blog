@@ -1,7 +1,8 @@
 ---
 title: 最近在做的事和一些想法
 date: 2020-05-14 23:31:44
-tags: 感悟
+categories: 感想
+tags: 目标
 ---
 
 <img src="5-14-recently/deno.png">

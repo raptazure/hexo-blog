@@ -1,7 +1,8 @@
 ---
 date: 2019-11-05
 title: Python Sequence
-categories: Python
+categories: 编程
+tags: Python
 ---
 
 ## 序列
@@ -828,11 +829,11 @@ list2 = list1
   ```
 
 #### 表格数据使用字典和列表存储：
-| name  | age  |   job   |   city   |
-| :---: | :--: | :-----: | :------: |
-| rapt  |  18  | student | Beijing  |
-| azure |  19  |   boy   | Shanghai |
-| happy |  1   |  girl   | Shenzhen |
+| name  |  age  |   job   |   city   |
+| :---: | :---: | :-----: | :------: |
+| rapt  |  18   | student | Beijing  |
+| azure |  19   |   boy   | Shanghai |
+| happy |   1   |  girl   | Shenzhen |
 
 ```python
 r1 = {'name':'rapt','age':18,'job':'student','city':'Beijing'}
@@ -851,13 +852,13 @@ for i in range(len(table)):
 
 - 字典对象的核心是散列表，散列表是一个稀疏数组（总是有空白元素的数组），数组的每个单词叫做bucket，每个bucket有两个部分：一个是键对象的引用，一个是值对象的引用。由于所有bucket结构和大小一致，可以通过偏移量来读取指定bucket。
 
-  |  0   | key1 | value1 |
-  | :--: | :--: | :----: |
-  |  1   |      |        |
-  |  2   | key2 | value2 |
-  |  3   |      |        |
-  |  4   |      |        |
-  |  5   | key4 | value4 |
+  |   0   | key1  | value1 |
+  | :---: | :---: | :----: |
+  |   1   |       |        |
+  |   2   | key2  | value2 |
+  |   3   |       |        |
+  |   4   |       |        |
+  |   5   | key4  | value4 |
   
 - 将一个键值对放到字典的底层过程：假设字典a对象创建完后，数组长度为8，要把“name” = “rapt”这个键值对放到字典对象a中，首先计算键`'name'`的散列值`hash()`，由于数组长度为8，可以拿计算出的散列值最右边3位数字作为偏移量(若长度为32则6位6位取)，即100，十进制数字为4，查看偏移量4对应的bucket值是否为空，若空则放入键值对，若不空则向左取次右边3位作为偏移量，即->100->111，111十进制为7，再看偏移量为7的bucket是否为空，直到找到空的bucket将键值对放进去。
 

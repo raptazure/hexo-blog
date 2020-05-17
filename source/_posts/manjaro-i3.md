@@ -1,8 +1,8 @@
 ---
 title: Manjaro-i3
 date: 2019-11-10 22:06:23
-categories: Tools
-tags: linux
+categories: 技术
+tags: Linux
 ---
 
   <img src="manjaro-i3/Screenshot_20191110_223819.jpg" style="margin: 0 auto;">

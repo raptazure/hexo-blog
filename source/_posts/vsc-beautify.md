@@ -1,8 +1,8 @@
 ---
 title: 让VSCode更美
 date: 2020-03-13 14:05:15
-tags: Visual Studio Code
-categories: Tools
+tags: Text Editor
+categories: 编程
 ---
 
 <img src="vsc-beautify/demo.png" width="900px">

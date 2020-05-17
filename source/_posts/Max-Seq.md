@@ -1,7 +1,8 @@
 ---
 date: 2019-11-05
 title: Max Subsequnce Sum
-categories: Algorithms
+categories: 编程
+tags: 算法
 mathjax: true
 ---
 - 给定N个整数的序列*{A1,A2, ... ,An}*，求函数的最大值：

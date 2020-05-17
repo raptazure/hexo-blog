@@ -1,8 +1,8 @@
 ---
 title: 在Vue.js中使用TS
 date: 2020-03-06 14:22:43
-categories: JavaScript
-tags: ['TypeScript', 'Vue.js']
+categories: 编程
+tags: ['JavaScript', 'TypeScript', 'Vue.js']
 ---
 <img src="vue-ts/demo.jpeg" width="950px">  
 

@@ -1,7 +1,7 @@
 ---
 title: Vim基本命令
-categories: Tools
-tags: linux
+categories: 编程
+tags: Text Editor
 date: 2019-11-12
 mathjax: true
 ---

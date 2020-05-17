@@ -1,6 +1,7 @@
 ---
 title: 链表 - Linked List
-categories: Data Structures
+categories: 编程
+tags: 数据结构
 date: 2019-11-25
 ---
 

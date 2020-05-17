@@ -1,7 +1,8 @@
 ---
 date: 2019-11-08
 title: Python OOP
-categories: Python
+tags: Python
+categories: 编程
 ---
 # 面向对象编程
 
