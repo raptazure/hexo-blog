@@ -14,8 +14,11 @@
 <li>把要做的事情减少，把事情做好。记得为何而出发，记得要去往何方。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>感想</category>
+      </categories>
       <tags>
-        <tag>感悟</tag>
+        <tag>目标</tag>
       </tags>
   </entry>
   <entry>
@@ -34,8 +37,11 @@
 <li>总之加油加油啦！</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>感想</category>
+      </categories>
       <tags>
-        <tag>感悟</tag>
+        <tag>回忆</tag>
       </tags>
   </entry>
   <entry>
@@ -82,10 +88,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Tools</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>Visual Studio Code</tag>
+        <tag>Text Editor</tag>
       </tags>
   </entry>
   <entry>
@@ -127,10 +133,11 @@
 </ul>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>TypeScript</tag>
+        <tag>JavaScript</tag>
         <tag>Vue.js</tag>
       </tags>
   </entry>
@@ -170,10 +177,11 @@
 </ul>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>TypeScript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -201,7 +209,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Tools</category>
+        <category>技术</category>
       </categories>
       <tags>
         <tag>git</tag>
@@ -250,7 +258,7 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">addBinary</span><span class="params">(<span class="built_in">string</span> a, <span class="built_in">string</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A, B;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = a.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) A.push_back(a[i] - <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = b.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) B.push_back(b[i] - <span class="string">'0'</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.size() || i &lt; B.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; A.size()) t += A[i];</span><br><span class="line">            <span class="keyword">if</span>(i &lt; B.size()) t += B[i];</span><br><span class="line">            res.push_back(t % <span class="number">2</span>);</span><br><span class="line">            t /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t) res.push_back(<span class="number">1</span>);</span><br><span class="line">        reverse(res.begin(), res.end());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>&amp; i:res) ans.push_back(i + <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Algorithms</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>LeetCode</tag>
@@ -347,8 +355,11 @@
 <h3 id="补充：线性表定义与操作-链式表"><a href="#补充：线性表定义与操作-链式表" class="headerlink" title="补充：线性表定义与操作-链式表"></a>补充：线性表定义与操作-链式表</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">PtrToLNode</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    PtrToLNode Next;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> PtrToLNode Position;</span><br><span class="line"><span class="keyword">typedef</span> PtrToLNode List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 查找 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR NULL</span></span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">( List L, ElementType X )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Position p = L; <span class="comment">/* p指向L的第1个结点 */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( p &amp;&amp; p-&gt;Data!=X )</span><br><span class="line">        p = p-&gt;Next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 下列语句可以用 return p; 替换 */</span></span><br><span class="line">    <span class="keyword">if</span> ( p )</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 带头结点的插入 */</span></span><br><span class="line"><span class="comment">/*注意:在插入位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是链表结点指针，在P之前插入新结点 */</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">( List L, ElementType X, Position P )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 这里默认L有头结点 */</span></span><br><span class="line">    Position tmp, pre;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 查找P的前一个结点 */</span></span><br><span class="line">    <span class="keyword">for</span> ( pre=L; pre&amp;&amp;pre-&gt;Next!=P; pre=pre-&gt;Next ) ;</span><br><span class="line">    <span class="keyword">if</span> ( pre==<span class="literal">NULL</span> ) &#123; <span class="comment">/* P所指的结点不在L中 */</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"插入位置参数错误\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">/* 找到了P的前一个结点pre */</span></span><br><span class="line">        <span class="comment">/* 在P前插入新结点 */</span></span><br><span class="line">        tmp = (Position)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode)); <span class="comment">/* 申请、填装结点 */</span></span><br><span class="line">        tmp-&gt;Data = X;</span><br><span class="line">        tmp-&gt;Next = P;</span><br><span class="line">        pre-&gt;Next = tmp;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 带头结点的删除 */</span></span><br><span class="line"><span class="comment">/*注意:在删除位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是拟删除结点指针 */</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Delete</span><span class="params">( List L, Position P )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 这里默认L有头结点 */</span></span><br><span class="line">    Position tmp, pre;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 查找P的前一个结点 */</span></span><br><span class="line">    <span class="keyword">for</span> ( pre=L; pre&amp;&amp;pre-&gt;Next!=P; pre=pre-&gt;Next ) ;</span><br><span class="line">    <span class="keyword">if</span> ( pre==<span class="literal">NULL</span> || P==<span class="literal">NULL</span>) &#123; <span class="comment">/* P所指的结点不在L中 */</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"删除位置参数错误\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; <span class="comment">/* 找到了P的前一个结点pre */</span></span><br><span class="line">        <span class="comment">/* 将P位置的结点删除 */</span></span><br><span class="line">        pre-&gt;Next = P-&gt;Next;</span><br><span class="line">        <span class="built_in">free</span>(P);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Data Structures</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
   </entry>
   <entry>
     <title>Vim基本命令</title>
@@ -524,10 +535,10 @@
 <p><img src="https://www.runoob.com/wp-content/uploads/2015/10/text1.png" alt></p>
 ]]></content>
       <categories>
-        <category>Tools</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>Text Editor</tag>
       </tags>
   </entry>
   <entry>
@@ -584,10 +595,10 @@
 <h2 id="结束的话："><a href="#结束的话：" class="headerlink" title="结束的话："></a>结束的话：</h2><p>manjaro+i3 真的把简约高效美观炫酷做到了很好的平衡，总之超爱啦～希望更多的人可以用上并喜欢上 Manjaro Linux + i3 吧～</p>
 ]]></content>
       <categories>
-        <category>Tools</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -665,8 +676,11 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Python OOP</title>
@@ -934,8 +948,11 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Python Function</title>
@@ -1071,8 +1088,11 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#str = 'global'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#str = 'outer'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="comment">#str = 'inner'</span></span><br><span class="line">        print(str)</span><br><span class="line">    inner()</span><br><span class="line">outer()</span><br><span class="line"><span class="comment"># &lt;class 'str'&gt;  Built-in</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Python Control Flow</title>
@@ -1119,8 +1139,11 @@
 <p>​            </p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Max Subsequnce Sum</title>
@@ -1144,8 +1167,11 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MaxSubseqSum4</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> a[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> tmpSum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmpSum+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(tmpSum&lt;<span class="number">0</span>)</span><br><span class="line">            tmpSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (max&lt;tmpSum)</span><br><span class="line">            max=tmpSum;            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Algorithms</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
   </entry>
   <entry>
     <title>Python Sequence</title>
@@ -1470,7 +1496,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r1 = &#123;<span class="string">'name'</span>:<span class="string">'rapt'</span>,<span class="string">'age'</span>:<span class="number">18</span>,<span class="string">'job'</span>:<span class="string">'student'</span>,<span class="string">'city'</span>:<span class="string">'Beijing'</span>&#125;</span><br><span class="line">r2 = &#123;<span class="string">'name'</span>:<span class="string">'azure'</span>,<span class="string">'age'</span>:<span class="number">19</span>,<span class="string">'job'</span>:<span class="string">'boy'</span>,<span class="string">'city'</span>:<span class="string">'Sahnghai'</span>&#125;</span><br><span class="line">r3 = &#123;<span class="string">'name'</span>:<span class="string">'happy'</span>,<span class="string">'age'</span>:<span class="number">1</span>,<span class="string">'job'</span>:<span class="string">'girl'</span>,<span class="string">'city'</span>:<span class="string">'Shenzhen'</span>&#125;</span><br><span class="line">table = [r1,r2,r3]</span><br><span class="line"><span class="comment">#获取第二行的job</span></span><br><span class="line">print(table[<span class="number">1</span>].get(<span class="string">"job"</span>))</span><br><span class="line">print(<span class="string">''</span>)</span><br><span class="line"><span class="comment">#打印表中所有job &amp; age</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(table)):</span><br><span class="line">	print(table[i].get(<span class="string">'job'</span>),table[i].get(<span class="string">'age'</span>))</span><br></pre></td></tr></table></figure>
 <h4 id="字典核心底层原理："><a href="#字典核心底层原理：" class="headerlink" title="字典核心底层原理："></a>字典核心底层原理：</h4><ul>
 <li><p>字典对象的核心是散列表，散列表是一个稀疏数组（总是有空白元素的数组），数组的每个单词叫做bucket，每个bucket有两个部分：一个是键对象的引用，一个是值对象的引用。由于所有bucket结构和大小一致，可以通过偏移量来读取指定bucket。</p>
-<p>|  0   | key1 | value1 |<br>| :—: | :—: | :——: |<br>|  1   |      |        |<br>|  2   | key2 | value2 |<br>|  3   |      |        |<br>|  4   |      |        |<br>|  5   | key4 | value4 |</p>
+<p>|   0   | key1  | value1 |<br>| :—-: | :—-: | :——: |<br>|   1   |       |        |<br>|   2   | key2  | value2 |<br>|   3   |       |        |<br>|   4   |       |        |<br>|   5   | key4  | value4 |</p>
 </li>
 <li><p>将一个键值对放到字典的底层过程：假设字典a对象创建完后，数组长度为8，要把“name” = “rapt”这个键值对放到字典对象a中，首先计算键<code>&#39;name&#39;</code>的散列值<code>hash()</code>，由于数组长度为8，可以拿计算出的散列值最右边3位数字作为偏移量(若长度为32则6位6位取)，即100，十进制数字为4，查看偏移量4对应的bucket值是否为空，若空则放入键值对，若不空则向左取次右边3位作为偏移量，即-&gt;100-&gt;111，111十进制为7，再看偏移量为7的bucket是否为空，直到找到空的bucket将键值对放进去。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = &#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="string">'name'</span>] = <span class="string">'rapt'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(hash(<span class="string">'name'</span>))</span><br><span class="line"><span class="string">'-0b10101110010111000010011110111010110011000011011001110111100100'</span></span><br></pre></td></tr></table></figure>
@@ -1512,8 +1538,11 @@
 <h4 id="集合相关操作："><a href="#集合相关操作：" class="headerlink" title="集合相关操作："></a>集合相关操作：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除元素</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = &#123;<span class="number">233</span>,<span class="number">666</span>,<span class="number">555</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.remove(<span class="number">555</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">&#123;<span class="number">233</span>, <span class="number">666</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.clear()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">set()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="string">'rapt'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="string">'rapt'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a|b  <span class="comment">#并集</span></span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'rapt'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a&amp;b  <span class="comment">#交集</span></span><br><span class="line">&#123;<span class="string">'rapt'</span>, <span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a-b  <span class="comment">#差集</span></span><br><span class="line">&#123;<span class="number">3</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.union(b) <span class="comment">#并集</span></span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'rapt'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.intersection(b) <span class="comment">#交集</span></span><br><span class="line">&#123;<span class="string">'rapt'</span>, <span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.difference(b)  <span class="comment">#差集</span></span><br><span class="line">&#123;<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>PAT</title>
@@ -1754,8 +1783,11 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isprime</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= a; i++)</span><br><span class="line">        <span class="keyword">if</span>(a % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M, N, num = <span class="number">2</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">while</span> (cnt &lt; N) &#123;</span><br><span class="line">        <span class="keyword">if</span> (isprime(num)) &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">if</span> (cnt &gt;= M) v.push_back(num);</span><br><span class="line">        &#125;</span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line">    cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.size(); i++) &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">if</span> (cnt % <span class="number">10</span> != <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, v[i]);</span><br><span class="line">        <span class="keyword">if</span> (cnt % <span class="number">10</span> == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Algorithms</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
   </entry>
   <entry>
     <title>Python Introduction</title>
@@ -1899,8 +1931,11 @@
 <p>。</p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Binary Search</title>
@@ -1920,8 +1955,11 @@
 <h4 id="浮点数二分：AcWing-790"><a href="#浮点数二分：AcWing-790" class="headerlink" title="浮点数二分：AcWing 790"></a>浮点数二分：AcWing 790</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        flag = <span class="number">1</span>;</span><br><span class="line">        n = -n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">0</span>, r = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">double</span> mid = (r + l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(mid * mid * mid &gt;= n)  r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag) <span class="built_in">printf</span>(<span class="string">"-"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.6lf"</span>,l);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Algorithms</category>
+        <category>编程</category>
       </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
   </entry>
   <entry>
     <title>如何高效优雅地为Arch Linux瘦身?</title>
@@ -1942,8 +1980,11 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo journalctl --vacuum-size=30M</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2035,8 +2076,8 @@
 <p>​    折腾jekyll的时间也不算很短, 最后却弃坑了…看似浪费了很多时间, 然而因为在这个过程中有了一些对YAML的基本了解, 以及jekyll和hexo的组织逻辑比较相似, 所以总体还是蛮有收获的…毕竟不去尝试也不容易取得进展啊。</p>
 <p>​    需要学的知识还有很多很多，而这只是一个开始，向着远方加油吧。</p>
 ]]></content>
-      <tags>
-        <tag>感悟</tag>
-      </tags>
+      <categories>
+        <category>技术</category>
+      </categories>
   </entry>
 </search>
