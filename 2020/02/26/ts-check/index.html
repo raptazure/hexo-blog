@@ -132,19 +132,19 @@
 
 
 
-<meta name="description" content="$\quad$在 Vanilla JS 里是否可以实现类似TypeScript的类型检查呢？在TS2.3版本以后，微软增加了对JS文件的TS支持，从此以后，在你的.js里加上几行注释就可以愉快地体验啦~">
+<meta name="description" content="&amp;nbsp; &amp;nbsp; &amp;nbsp; 在 Vanilla JS 里是否可以实现类似 TypeScript 的类型检查呢？在 TS2.3 版本以后，微软增加了对 JS 文件的 TS 支持，从此以后，在你的.js里加上几行注释就可以愉快地体验啦~">
 <meta name="keywords" content="TypeScript,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在JS中体验TS的快感">
 <meta property="og:url" content="https://raptazure.github.io/2020/02/26/ts-check/index.html">
 <meta property="og:site_name" content="Raptazure&#39;s Blog">
-<meta property="og:description" content="$\quad$在 Vanilla JS 里是否可以实现类似TypeScript的类型检查呢？在TS2.3版本以后，微软增加了对JS文件的TS支持，从此以后，在你的.js里加上几行注释就可以愉快地体验啦~">
+<meta property="og:description" content="&amp;nbsp; &amp;nbsp; &amp;nbsp; 在 Vanilla JS 里是否可以实现类似 TypeScript 的类型检查呢？在 TS2.3 版本以后，微软增加了对 JS 文件的 TS 支持，从此以后，在你的.js里加上几行注释就可以愉快地体验啦~">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raptazure.github.io/2020/02/26/ts-check/ts.jpg">
-<meta property="og:updated_time" content="2020-05-17T07:29:56.204Z">
+<meta property="og:updated_time" content="2020-05-18T15:07:15.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在JS中体验TS的快感">
-<meta name="twitter:description" content="$\quad$在 Vanilla JS 里是否可以实现类似TypeScript的类型检查呢？在TS2.3版本以后，微软增加了对JS文件的TS支持，从此以后，在你的.js里加上几行注释就可以愉快地体验啦~">
+<meta name="twitter:description" content="&amp;nbsp; &amp;nbsp; &amp;nbsp; 在 Vanilla JS 里是否可以实现类似 TypeScript 的类型检查呢？在 TS2.3 版本以后，微软增加了对 JS 文件的 TS 支持，从此以后，在你的.js里加上几行注释就可以愉快地体验啦~">
 <meta name="twitter:image" content="https://raptazure.github.io/2020/02/26/ts-check/ts.jpg">
 
 
@@ -461,34 +461,35 @@
 
       
         <p><img src="/2020/02/26/ts-check/ts.jpg" width="900px"></p>
-<p>$\quad$在 Vanilla JS 里是否可以实现类似TypeScript的类型检查呢？在TS2.3版本以后，微软增加了对JS文件的TS支持，从此以后，在你的<code>.js</code>里加上几行注释就可以愉快地体验啦~</p>
+<p>&nbsp; &nbsp; &nbsp; 在 Vanilla JS 里是否可以实现类似 TypeScript 的类型检查呢？在 TS2.3 版本以后，微软增加了对 JS 文件的 TS 支持，从此以后，在你的<code>.js</code>里加上几行注释就可以愉快地体验啦~</p>
 <a id="more"></a>
 <h3 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h3><ul>
 <li>在要进行类型检查的<code>.js</code>文件的开始加上注释：<code>// @ts-check</code>，如果你正在使用 VSCode 并且代码中有不当之处的话，就可以即时看到红线以及报错信息了。</li>
 <li><p>比如我们输入以下代码，可以发现<code>readonly: false</code>被标出了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">"Hello, TS"</span>,</span><br><span class="line"> &#123; <span class="attr">value</span>: <span class="string">"v1.0.0"</span>, <span class="attr">readonly</span>: <span class="literal">false</span>&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">"Hello, TS"</span>, &#123;</span><br><span class="line">  value: <span class="string">"v1.0.0"</span>,</span><br><span class="line">  readonly: <span class="literal">false</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>此时通过对<code>defineProperty</code>进行<code>Ctrl+Click</code>，我们可以打开<code>lib.es5.d.ts</code>，找到下列代码，可以发现并不应该用<code>readonly</code>。</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> PropertyDescriptor &#123;</span><br><span class="line">  configurable?: <span class="built_in">boolean</span>;</span><br><span class="line">  enumerable?: <span class="built_in">boolean</span>;</span><br><span class="line">  value?: <span class="built_in">any</span>;</span><br><span class="line">  writable?: <span class="built_in">boolean</span>;</span><br><span class="line">  <span class="keyword">get</span>?(): <span class="built_in">any</span>;</span><br><span class="line">  <span class="keyword">set</span>?(v: <span class="built_in">any</span>): <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>所以，我们可以这样更改代码，可以发现错误马上消失了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">"Hello, TS"</span>,</span><br><span class="line"> &#123; <span class="attr">value</span>: <span class="string">"v1.0.0"</span>, <span class="attr">writable</span>: <span class="literal">true</span>&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">window</span>, <span class="string">"Hello, TS"</span>, &#123;</span><br><span class="line">  value: <span class="string">"v1.0.0"</span>,</span><br><span class="line">  writable: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>再如以下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shipWeight</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">document</span>.getElementById(<span class="string">'weight'</span>).textContent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (shipWeight &gt; <span class="number">100</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Oversize package'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shipWeight</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">document</span>.getElementById(<span class="string">"weight"</span>).textContent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (shipWeight &gt; <span class="number">100</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Oversize package"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>这样，ts可以帮助我们在runtime之前找出错误，而不至于发生条件一直是false但是不会报错的情况。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shipWeight</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">document</span>.getElementById(<span class="string">'weight'</span>).textContent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (shipWeight() &gt; <span class="number">100</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Oversize package'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>这样，ts 可以帮助我们在 runtime 之前找出错误，而不至于发生条件一直是 false 但是不会报错的情况。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shipWeight</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">document</span>.getElementById(<span class="string">"weight"</span>).textContent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (shipWeight() &gt; <span class="number">100</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Oversize package"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="定义类型"><a href="#定义类型" class="headerlink" title="定义类型"></a>定义类型</h3><ul>
-<li>除了进行类型检查之外，我们还可以通过JSDoc注释对默认类型为any的变量进行定义，比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @param &#123; string | string[] &#125; emailAddr</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendUpdates</span>(<span class="params">emailAddr</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sendEmail</span>(<span class="params">addr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (shipWeight() &gt; <span class="number">100</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Oversize package'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(emailAddr)) &#123;</span><br><span class="line">    emailAddr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">val, idx</span>) </span>&#123;</span><br><span class="line">      sendEmail(val.trim());</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    sendEmail(emailAddr.trim());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>除了进行类型检查之外，我们还可以通过 JSDoc 注释对默认类型为 any 的变量进行定义，比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @ts-check</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @param &#123; string | string[] &#125; emailAddr</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendUpdates</span>(<span class="params">emailAddr</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sendEmail</span>(<span class="params">addr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (shipWeight() &gt; <span class="number">100</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Oversize package"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(emailAddr)) &#123;</span><br><span class="line">    emailAddr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">val, idx</span>) </span>&#123;</span><br><span class="line">      sendEmail(val.trim());</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    sendEmail(emailAddr.trim());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="更进一步"><a href="#更进一步" class="headerlink" title="更进一步"></a>更进一步</h3><ul>
-<li>如果直接把现存的JS文件扩展名修改为<code>.ts</code>的话，就需要修改相对比较多的地方了，这里仅仅列出一些Tips，具体还需要参考&nbsp;<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript官方文档</a>&nbsp;以及其他资源。</li>
-<li>Tip1：如果使用了commonjs语句<code>const request = require(&#39;request&#39;);</code>进行import，可以使用replace+正则表达式<code>(?:const|let|var)\s+(\w+)\s=\srequire\((.+?)\)</code>和<code>import * as $1 from $2</code>完成到的es6相应语法的替换。当然，可能还要处理更多关于import和export的问题。</li>
-<li>Tip2：擅长利用dts文件（如果存在），受益于已经定义好的类型。</li>
+<li>如果直接把现存的 JS 文件扩展名修改为<code>.ts</code>的话，就需要修改相对比较多的地方了，这里仅仅列出一些 Tips，具体还需要参考&nbsp;<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript 官方文档</a>&nbsp;以及其他资源。</li>
+<li>Tip1：如果使用了 commonjs 语句<code>const request = require(&#39;request&#39;);</code>进行 import，可以使用 replace+正则表达式<code>(?:const|let|var)\s+(\w+)\s=\srequire\((.+?)\)</code>和<code>import * as $1 from $2</code>完成到的 es6 相应语法的替换。当然，可能还要处理更多关于 import 和 export 的问题。</li>
+<li>Tip2：擅长利用 dts 文件（如果存在），受益于已经定义好的类型。</li>
 <li>Tip3: 加入类型不止可以帮助我们找出错误，还将有更好的自动补全提示，全面提高开发效率。同时也使代码更易于阅读与维护。</li>
 </ul>
 
@@ -641,7 +642,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -690,7 +691,7 @@
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:raptazure@163.com" target="_blank" title="E-Mail">
+                    <a href="mailto:raptazure@qq.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
@@ -801,7 +802,7 @@
 
 
 <span class="theme-info">
-  <span class="post-count">&nbsp; | &nbsp;全站字数统计：42.4k</span>
+  <span class="post-count">&nbsp; | &nbsp;全站字数统计：42.5k</span>
 </span>
 
   
