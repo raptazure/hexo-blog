@@ -7,7 +7,7 @@ mathjax: true
 ---
 
 <img src="Vim/vim_main.png">
-$\quad$主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容
+&nbsp; &nbsp; &nbsp; 主要介绍 Vim 的常用编辑命令以及 VSCode 使用 Vim key binding 的相关内容
 
 <!-- more-->
 

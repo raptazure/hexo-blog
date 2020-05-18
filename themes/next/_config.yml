@@ -133,7 +133,7 @@ scheme: Pisces
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/raptazure || github
-  E-Mail: mailto:raptazure@163.com || envelope
+  E-Mail: mailto:raptazure@qq.com || envelope
   #Google: https://plus.google.com/Raptazure || google
   #bilibili: https://space.bilibili.com/35829586 ||
   Twitter: https://twitter.com/raptazure?s=09 || twitter
@@ -691,7 +691,7 @@ pace: true
 #pace-theme-minimal
 # For example
 # pace_theme: pace-theme-center-simple
-pace_theme: pace-theme-center-atom
+pace_theme: pace-theme-minimal
 
 # Canvas-nest
 canvas_nest: true

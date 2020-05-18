@@ -7,7 +7,7 @@ categories: 编程
 
 <img src="vsc-beautify/demo.png" width="900px">
   
-$\quad$漂亮的编辑器可以让写代码的心情也变好呢，对于每天都见面的VSCode，当然要看起来尽可能漂亮啦，本文就介绍一下自己目前使用的方案吧~
+&nbsp; &nbsp; &nbsp; 漂亮的编辑器可以让写代码的心情也变好呢，对于每天都见面的VSCode，当然要看起来尽可能漂亮啦，本文就介绍一下自己目前使用的方案吧~
 
 <!-- more -->
 
