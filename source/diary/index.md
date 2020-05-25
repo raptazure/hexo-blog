@@ -3,17 +3,22 @@ title: 记录心情
 date: 2020-05-17 15:44:04
 ---
 
-5.22 晴
+5.25 晴转雨
 
-> &nbsp; &nbsp; &nbsp; 以后比较长的想法会写在这里，短一点的会发在 [Twitter](https://twitter.com/raptazure)（因为众所周知的紫薯限制），用推特是因为不像博客一样需要排版和部署，节约时间（虽然也没省多少就是了），都 0202 年了，qq 空间网页版上传图片竟然还在用 flash，真是醉了，以后也就用来发发特殊性质说说吧（需要告知比较多的人那种的？）hhhhh
+> &nbsp; &nbsp; &nbsp; 《鬼灭之刃》第 19 集真的超级棒，配乐和剧情都让人很感动，有时真的很庆幸能进入二次元的世界呢。明天要开始执行“每天最多只补一集番”计划，毕竟补番还是很耗费时间的一件事情，导致这几天写代码的时间变少了，一天结束的时候有些若有所失的感觉。今天尝试了 `Todoist for Firefox`，同时像 `WakaTime` 和 `RescueTime` 一样， 也把相应状态通过 `github-action` 更新到了 `gist` 上。今天在动态偶然刷到了一张熟悉的背影，现在想想，距离那场告别也已经有快一年的时间了，虽然已经无数次确认已经放下的事实，但是要忘记的话，于我而言似乎也并不可能，当然也没有完全忘记的必要。毕竟只能属于过去的那份心情，已经深埋到了即使挖一年也不一定可以发现的地方了吧。所以，现在就，挺好的。
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4064249&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1397097038&auto=0&height=66"></iframe>
 
-5.21 晴转阴
-
-> &nbsp; &nbsp; &nbsp; 感觉同学中用 GitHub 的好少（一直在用的似乎没有，当然也可能只是我不知道），就莫名显得自己有些另类hhh。相对周围来讲，还是一个人 push 代码，一个人提 issue，一个人发 pull request，各种项目的安利也很少会有回应，找不到能随便扯扯技术或一起玩 GitHub 的人儿。怎么说呢，也许是大一的原因，技术氛围感觉倒有些像高中emm。然而把目光从周围移开，就会觉得，在这么多热爱开源的人们中间，我却又并不孤独，自己会为参与到 10k+ star 的项目感到庆幸，也会为在 GitHub 上结识了新朋友而高兴（即使从未聊过天），看到那么多为理想而努力的大家，那么多为心中正确的事业而去做些什么的大家，那么多即使与周围的环境格格不入也决定坚持的大家，其实自己这稍显清冷的日常也无所谓了吧。不过，真心还是希望周围技术氛围能更好一些，个人觉得早点儿找到编程有意思的地方可能比 C++ 考试弄个高分更重要。不过话说回来，也许每个人的选择不同，讨论重要与否的问题并没有意义。我也只是陈述自己的想法顺便吐个槽而已hh。
+5.23 晴
+> &nbsp; &nbsp; &nbsp; 今天用 [waifulabs](https://waifulabs.com/) 生成了新头像，好可爱，心情似乎也变好了w～不过话说回来，其实前些天还是有一点丧的，大概是因为周围的（社交）环境吧，同学中用 Twitter 和 GitHub 的都很少很少（这能不能赖墙呀），Twitter 的话，其实能变成特别有技术氛围的那种，当然也能愉快地吹水或者看资讯，而 GitHub 自然不必多说哈哈哈。不过现在想想其实稍显冷清的社交日常也无所谓，毕竟自己能为开源做些什么就会很满足很开心呀，所以努力去向着理想前进就好了～
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=509106775&auto=0&height=66"></iframe>
+
+5.22 晴
+
+> &nbsp; &nbsp; &nbsp; 今天发的 PR 被合并到了主分支，第一次参与 12k star 的项目，开心！同时学校的通知以后可以直接订阅了，也算是服务人民吧hhh。以后比较长的想法会写在这里，短一点的会发在 [Twitter](https://twitter.com/raptazure)（因为众所周知的紫薯限制），用推特是因为不像博客一样需要排版和部署，节约时间（虽然也没省多少就是了），都 0202 年了，qq 空间网页版上传图片竟然还在用 flash，真是醉了，以后也就用来发发特殊性质说说吧（需要告知比较多的人那种的？）hhhhh
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4064249&auto=0&height=66"></iframe>
 
 5.20 晴
 

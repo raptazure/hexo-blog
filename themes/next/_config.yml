@@ -158,13 +158,13 @@ links:
   Lionad: http://www.lionad.art/
   静かな森: https://innei.ren/
   xsun2001: https://xsun.io/
-  lhd-code: https://lhd-code.github.io/lhd-code-new.github.io/
+  lhd-code: https://lhd-code.github.io/
   Liu Xinlong: https://2191210307.github.io/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /images/w.jpg
+avatar: /images/ww.jpg
 
 # Table Of Contents in the Sidebar
 toc:
