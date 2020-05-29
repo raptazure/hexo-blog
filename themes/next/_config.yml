@@ -102,7 +102,7 @@ menu:
   about: /about/ || user
   categories: /categories/ || th
   tags: /tags/ || tags
-  说说: /diary/ || calendar
+  日记: /diary/ || calendar
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
