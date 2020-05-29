@@ -5,9 +5,14 @@ date: 2020-05-17 15:44:04
 
 5.28 晴转阴
 
-> &nbsp; &nbsp; &nbsp; 今天发现了 `Cold Turkey Blocker`，用了 macOS 之后，神奇的生产力工具果然变多了。下面是今天发的推，做些改动同步到这里：相较于周围的环境，我总是那么奇葩。高中搞了三年化竞，在只重视裸分的县城学校简直就是个异类。上了大学，一边听着职业生涯课上老师讲“大学里的专业知识水平就是学分绩”的迷惑言论 (至少大一软工的我对这句话感到迷惑)，一边敲代码逛 GitHub。喜欢开源和分享，但给同学的技术安利却大部分没有任何回应。孤独一直是我常见的状态，慢慢倒也习惯了，只是有时会对周围的环境感到失落。要说值得庆幸的，就是今年遇见了爱好 (除了开源其他都基本吻合) 和性格 (是可爱的鱼鱼呀) 都比较像的人 (应该说是从出生以来遇到的和我最像的同龄人了)， 还有通过 GitHub 和博客交到了一些新朋友。以后会把更多时间花在开源社区而不是向同学分享上，这样大家都舒服。
+> &nbsp; &nbsp; &nbsp; 今天发现了 `Cold Turkey Blocker`，用了 macOS 之后，神奇的生产力工具果然变多了。下面本是今天发的推，做些改动迁到这里：相较于周围的环境，我总是那么奇葩。高中搞了三年化竞，在只重视裸分的县城学校简直就是个异类。上了大学，一边听着职业生涯课上老师讲“大学里的专业知识水平就是学分绩”的迷惑言论 (至少大一软工的我对这句话感到迷惑)，一边敲代码逛 GitHub。喜欢开源和分享，但给同学的技术安利却大部分没有任何回应。孤独一直是我常见的状态，慢慢倒也习惯了，只是有时会对周围的环境感到失落。要说值得庆幸的，就是今年遇见了爱好 (除了开源其他都基本吻合) 和性格 (是可爱的鱼鱼呀) 都比较像的人 (应该说是从出生以来遇到的和我最像的同龄人了，甚至今天好像日推到了同一首歌还同时加了喜欢？)， 还有通过 GitHub 和博客交到了一些爱好 / 技术栈相似的新朋友。以后会把更多时间花在开源社区而不只是向同学分享上，这样大家都会感到舒服些 hhh
+<div style="display: inline-flex">
+  <img src="https://pic.downk.cc/item/5ed07658c2a9a83be534ba99.jpg" style="height: 240px; margin-bottom: 0;">
+  <img src="https://pic.downk.cc/item/5ed07679c2a9a83be534ce78.jpg" style="height: 240px; margin-bottom: 0;">
+</div>
+> &nbsp; &nbsp; &nbsp; 而且，今天学长将我设为了 Harbin Institute of Technology at Weihai GitHub 组织的 Owner，这样的话以后我就可以邀请别人啦！
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=459733590&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1367360604&auto=0&height=66"></iframe>
 
 5.26 晴
 
